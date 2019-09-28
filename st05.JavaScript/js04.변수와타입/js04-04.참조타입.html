@@ -3,10 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    
+    <script>
+        /*참조타입*/
+        //배열선언 = [] 아무거나 다 담을수있다. 숫자 문자 블린 
+        var array1 = [2,3,4,5,6]; //배열에서 시작은 0부터임.
+        var array2 = ['a','bc','d','efg'];
+        var array3 = [2, 'b', true, undefined, null];
+
+        console.log( typeof array1, array1 ); //두줄짜리를 한줄로 써줌
+        console.log( typeof array2, array2 );
+        console.log( typeof array3, array3 );
+
+        
+        //객체선언 : css설정과 유사함
+        var obj = {
+            width:"50px",
+            height:"100px",
+            age:25,
+            b:true
+        };
+        console.log( typeof obj, obj);
+               
+        //함수선언
+        var f = function name(params) {
+            console.log( '함수 호출' );
+        };
+        console.log( typeof f, f );
+        f(); /* 함수실행 */
+        //f-기본타입와 f()-참조타입 는 다르다. 저장하는방식에따라 기본타입-실제값이저장 / 참조타입-메모리주소값이저장
+             
+     
+    </script>
 
 </head>
 <body>
 
 </body>
-</html>
+</html>
