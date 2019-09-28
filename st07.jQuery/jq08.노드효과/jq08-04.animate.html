@@ -1,0 +1,101 @@
+<!doctypehtml>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ex_4</title>
+    <style>
+        h2 { margin: 30px; }
+        #region { position: relative; width: 200px; height:200px; overflow:hidden;  margin:auto; }
+        #images { width: 400px; height: 200px; }
+        #images a img { width:200px; height:200px; border:0; position: relative; }
+        #direction { width: 360px;  margin:auto; }
+        
+
+        #hscroll div {
+            position:relative;
+            background-color:#abc;
+            left:50px;
+            width:90px;
+            height:90px;
+            margin:5px;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div style="width:500px; float:left;">
+        <h2>easing 효과</h2>
+        <div  id="easing" >
+            <select>
+                <option>linear</option>
+                <option>swing</option>
+                <option>easeInQuad</option>
+                <option>easeOutQuad</option>
+                <option>easeInOutQuad</option>
+                <option>easeInCubic</option>
+                <option>easeOutCubic</option>
+                <option>easeInOutCubic</option>
+                <option>easeInQuart</option>
+                <option>easeOutQuart</option>
+                <option>easeInOutQuart</option>
+                <option>easeInQuint</option>
+                <option>easeOutQuint</option>
+                <option>easeInOutQuint</option>
+                <option>easeInExpo</option>
+                <option>easeOutExpo</option>
+                <option>easeInOutExpo</option>
+                <option>easeInSine</option>
+                <option>easeOutSine</option>
+                <option>easeInOutSine</option>
+                <option>easeInCirc</option>
+                <option>easeOutCirc</option>
+                <option>easeInOutCirc</option>
+                <option>easeInElastic</option>
+                <option>easeOutElastic</option>
+                <option>easeInOutElastic</option>
+                <option>easeInBack</option>
+                <option>easeOutBack</option>
+                <option>easeInOutBack</option>
+                <option>easeInBounce</option>
+                <option>easeOutBounce</option>
+                <option>easeInOutBounce</option>
+            </select>
+
+            <ul>
+                <li><a href="https://api.jqueryui.com/resources/easing-comparison.html" target="_blank">https://api.jqueryui.com/resources/easing-comparison.html</a></li>
+                <li><a href="https://api.jqueryui.com/easings/" target="_blank"> https://api.jqueryui.com/easings/</a><br></li>
+                <li><a href="https://plugins.jquery.com/jquery.easing/" target="_blank">https://plugins.jquery.com/jquery.easing/</a></li>
+            </ul>
+        </div>
+        
+        <hr>
+
+        <h2>사용자 효과 : animate</h2>
+        <div id="animate">
+            <button class="leftbtn">&laquo;</button>
+            <button class="rightbtn">&raquo;</button>
+            <div id="region">
+                <div id="images">
+                    <a href="#"><img src="./images/image3.jpg" id="leftimage" /></a>
+                    <a href="#"><img src="./images/image4.jpg" id="rightimage" /></a>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        
+        <h2>사용자 효과 : animate</h2>
+        <div id="hscroll">
+            <button id="left">&laquo;</button> 
+            <button id="right">&raquo;</button>
+            <div class="block"></div>
+        </div>
+    </div>
+    
+    <div>
+         <img src="./images/easing.png">
+    </div>
+</body>
+</html>
+

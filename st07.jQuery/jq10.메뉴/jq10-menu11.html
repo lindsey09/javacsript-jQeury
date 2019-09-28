@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{margin:0;padding:0}
+        body{font-size:12px;color:#999;}
+        a{text-decoration:none;color:#999;}
+        ul,li{list-style:none}
+        img{border:none}
+
+        /*메뉴부분*/
+        div.menu_guide{width:100%;position:absolute;left:0px; z-index:1000; background:#fff url(./images/navBg1.png) repeat-x;}
+
+        div.menu_bg{width:100%;overflow:hidden;/*height:42px;*/}
+        div.menu_bg.open{width:100%;overflow:hidden; background:url(./images/navBg3.png) repeat-x left bottom;}
+
+        div.menu_frame{width:980px;margin:0 auto}
+        div.menu_frame *{margin:0;padding:0;list-style:none;display:block}
+        div.menu_frame dl{float:left;width:163px;margin-right:-1px;}
+        div.menu_frame dl dt a{height:42px;text-align:center; line-height:42px;font-size:13px;color:#fff;font-weight:bold}
+        div.menu_frame dl dt a:hover{background:url("./images/navBg2.png") repeat-x}
+        div.menu_frame dl dt{border-left:1px solid #c66; border-right:1px solid #c66;}
+        div.menu_frame dl dd{ display:block; height:264px;padding-top:12px; border-left:1px solid #ccc;border-right:1px solid #ccc;}
+        div.menu_frame dl dd li a{height:30px;line-height:30px;padding-left:10px;}
+        div.menu_frame dl dd li a:hover{background:#c33;color:#fff;}
+
+        div#mainImg {width:100%;background:#000;height:337px;}
+        div#mainImg ul{width:980px;margin:0 auto;position:relative;}
+        div#mainImg ul li{position:absolute;left:0;top:0}
+    </style>
+</head>
+<body>
+  <div class="menu_guide">
+    <div class="menu_bg"><!--open클래스 적용할 부분-->
+        <div class="menu_frame">
+        <!--(s)IPD 프로그램-->
+        <dl>
+            <dt><a href="#">IPD 프로그램</a></dt>
+            <dd>
+                <ul>
+                    <li><a href="#">사업추진방향</a></li>
+                    <li><a href="#">사업분야</a></li>
+                    <li><a href="#">글로벌사업</a></li>
+                    <li><a href="#">컨퍼런스</a></li>
+                    <li><a href="#">교육</a></li>
+                </ul>
+            </dd>
+        </dl>
+        <!--(e)IPD 프로그램-->
+        <!--(s)공모전/인증제-->
+        <dl>
+            <dt><a href="#">공모전/인증제</a></dt>
+            <dd>
+                <ul>
+                    <li><a href="#">IPD국제외교디자인어워드</a></li>
+                    <li><a href="#">아름다운한옥디자인</a></li>
+                    <li><a href="#">양성평등공공디자인공모전</a></li>
+                    <li><a href="#">국제사진전문가인증</a></li>
+                    <li><a href="#">서비스디자인인증</a></li>
+                    <li><a href="#">명품음식디자인인증</a></li>
+                </ul>
+            </dd>
+        </dl>
+        <!--(e)공모전/인증제-->
+        <!--(s)재단광장-->
+        <dl>
+            <dt><a href="#">재단광장</a></dt>
+            <dd>
+                <ul>
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">재단행사</a></li>
+                    <li><a href="#">공고/입찰</a></li>
+                    <li><a href="#">글로벌네트워크</a></li>
+                    <li><a href="#">전문위원게시판</a></li>
+                    <li><a href="#">개인정보정책</a></li>
+                </ul>
+            </dd>
+        </dl>
+        <!--(e)재단광장-->
+        <!--(s)후원멤버쉽-->
+        <dl>
+            <dt><a href="#">후원멤버쉽</a></dt>
+            <dd>
+                <ul>
+                    <li><a href="#">멤버쉽안내</a></li>
+                    <li><a href="#">멤버쉽신청</a></li>
+                    <li><a href="#">후원금사용내역</a></li>
+                </ul>
+            </dd>
+        </dl>
+        <!--(e)후원멤버쉽-->
+        <!--(s)IPD전문위원단-->
+        <dl>
+            <dt><a href="#">IPD전문위원단</a></dt>
+            <dd>
+                <ul>
+                    <li><a href="#">전문위원단소개</a></li>
+                    <li><a href="#">인사말</a></li>
+                    <li><a href="#">지회상</a></li>
+                    <li><a href="#">전문위원현황</a></li>
+                </ul>
+            </dd>
+        </dl>
+        <!--(e)IPD전문위원단-->
+        <!--(s)IPD소개-->
+        <dl>
+            <dt><a href="#">IPD소개</a></dt>
+            <dd>
+                <ul>
+                    <li><a href="#">재단소개</a></li>
+                    <li><a href="#">인사말</a></li>
+                    <li><a href="#">비전및전략</a></li>
+                    <li><a href="#">정보공개</a></li>
+                    <li><a href="#">CI/인증마크</a></li>
+                    <li><a href="#">찾아오시는길</a></li>
+                </ul>
+            </dd>
+        </dl>
+        <!--(e)IPD소개-->
+        </div><!--//menu_frame-->
+    </div><!--//menu_bg-->
+  </div><!--//menu_guide-->
+  <div id="mainImg">
+  <ul>
+      <li><img src="./images/mainBanner1.png"></li>
+      <li><img src="./images/mainBanner2.png"></li>
+  </ul>
+  </div>
+ </body>
+</html>
