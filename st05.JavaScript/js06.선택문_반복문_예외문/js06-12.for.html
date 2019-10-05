@@ -3,9 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    
+    <script>
+        var a = 0;
+
+        for (
+            var i=0; 
+            i<=10; 
+            i=i+1
+        ){
+            console.log('i의 값은 ' + i );
+        };
+
+        //1부터 10까지 합계를 구하시오
+        var sum;
+        sum = 0;
+        for( var
+            i=1; 
+            i<=10; 
+            i=i+1
+            ){
+            sum = sum + i;
+            console.log('i=' +i, 'sum=' + sum);
+        };
+        console.log('1부터 10까지의 합계 ' + sum);
+        
+        //1부터 100까지의 합계를 구하시오
+        for(var i=1; i<=100; i=i+1) {
+            sum = sum + 1;
+        } ;
+        console.log('1부터 100까지의 합계 ' + sum);
+
+        //1부터 100까지의 홀수의 합계를 구하시오
+        for(var i=1; i<=100; i=i+2){
+            sum = sum + 1;
+        };
+        console.log('1부터 100까지의 홀수의 합계 ' + sum);
+
+        //2부터 100까지의 짝수의 합계를 구하시오
+        for(var i=2; i<=100; i=i+2){
+            sum = sum + 1;
+        };
+        console.log('1부터 100까지의 짝수의 합계 ' + sum);
+
+        //1부터 100까지의 3의 배수의 합계를 구하시오
+        //3의 배수를 구하는 방법
+        var i;
+        i=1;
+        (i%3)==0 
+
+        var sum = 0;
+        for(
+            var i=0; 
+            i<=100; 
+            i=i+1
+            ){
+            if ((i%3) == 0) {
+                console.log('3의 배수 맞다' + i);
+                sum = sum + i;
+            } else {
+                console.log('3의 배수 아니다' + i);
+            };
+        };
+        console.log('1부터 100까지의 3의배수의 합계 ' + sum);
+        
+
+
+    </script>
+
+
+
 </head>
 <body>
 
 </body>
-</html>
+</html>
+

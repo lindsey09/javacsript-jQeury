@@ -3,9 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-	
+	<script>
+        var grade;
+        grade = 90;
+
+        grade = prompt("점수는?");
+
+        //90보다 크거나 같고, 100보다 작거나 같을 때 ~~하고 and연산자 '&&'
+        if (90 <= grade && grade <= 100/* 90<=grade */){
+            console.log('A');
+        }
+        else if (80 <= grade && grade < 90 /* 80<=grade */){
+            console.log('B');
+        }
+        else if (70 <= grade && grade < 80 /* 70<=grade */){
+            console.log('C');
+        }
+        else if (60 <= grade && grade < 70 /* 60<=grade */){
+            console.log('D');
+        }
+        else if (0 <= grade && grade < 60){
+            console.log('F');
+            /*else{
+                console.log('F');
+            }
+                */
+        }
+        /*입력값이 120 들어오게되면, 출력이 안됨,
+        f가 출력되게 하려면
+         else {
+            console.log('F'); 
+            }
+            */
+
+
+
+
+    </script>
+
 </head>
 <body>
 
 </body>
-</html>
+</html>

@@ -4,8 +4,35 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style></style>
-    
+    <script>
+    console.log('더하기 연산시 형변환');
+
+    var result1 = 1 + '2'; //숫자 + 문자 = 문자로 변환 12
+    var result2 = '2' + true; //문자 + 불린 = 문자로 변환 2true
+    var result3 = '15' - 5; //문자 - 숫자 = 숫자로 변환 10
+
+    console.log(result1);
+    console.log(result2);
+    console.log(result3);
+
+
+    //+는 문자로 변하고 그 외 연산자는 숫자로 변환
+    //강제형변환
+    var result4 = String(1) + '2'; //문자 '12'
+    var result5 = '15' - String(5); //숫자 10
+
+    /*var result6 = Boolean('2') + true; //숫자 2 Boolean('2')=true로 환산됨 true 1로저장, 1 + 1 = 2 -- Boolean은 잘사용하지않음.*/
+
+    console.log(result4, typeof result4 );
+    console.log(result5, typeof result5 );
+    console.log(result6, typeof result6 );    
+
+
+    </script>
+
+
+
 </head>
 <body>
 </body>
-</html>
+</html>

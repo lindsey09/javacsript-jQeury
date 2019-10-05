@@ -3,9 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    
+    <script>
+
+        //논리연산자 값은 true / false 
+        var x = 3, y = 4;
+
+        var r = ( ( x == 3 ) && ( y == 3 ) ); //true && false => false
+        console.log( '( x == 3 ) && ( y == 3 ) : ' + r );
+
+        var r = ( ( x == 3 ) && ( y != 3 ) ); //true && true => true
+        console.log( '( x == 3 ) && ( y != 3 ) : ' + r );
+
+        var r = ( ( x == 3 ) || ( y == 3 ) ); //true || false => true
+        console.log( '( x == 3 ) || ( y == 3 ) : ' + r );
+
+        var r = ( ( x == 3 ) || ( y == 4 ) ); //true || true => true
+        console.log( '( x == 3 ) || ( y == 4 ) : ' + r );
+
+        var r = ( ( x != 3 ) || ( y == 4 ) ); //false || true => true
+        console.log( '( x != 3 ) || ( y == 4 ) : ' + r );
+
+        var r = ( ( x != 3 ) || ( y != 4 ) ); //false || false => false
+        console.log( '( x != 3 ) || ( y != 4 ) : ' + r );
+
+
+                
+
+
+    </script>    
+
+
+
 </head>
 <body>
 
 </body>
-</html>
+</html>
