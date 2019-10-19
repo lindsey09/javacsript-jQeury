@@ -1,0 +1,77 @@
+브라우저객체
+트리형태로 표시되는것
+BOM browser object model - (html 에서 사용됨)
+DOM document object model - (xml 에서 사용됨)
+
+찾기 속성6가지 :   id# / class. /  나머지속성 {} 대괄호 / 태그명으로찾기 / 자식찾기 / 자손찾기
+
+고전이벤트모델
+css/ 찾고 설정 id,class,속성으로 찾는다.
+자스 / 찾고 이벤트핸들러설정
+제쿼 / 찾고 핸들러 혹은 값을 설정
+
+*******************************
+해당값을 찾는다.
+html ->자스로변경
+이벤트처리하는함수를만들어야함
+*******************************
+
+윈도우사용 객체
+alert
+prompt
+confirm
+window.open(URL, 윈도우명, 옵션);
+
+
+자바스트립트에서는 하기와 같이 찾음.
+document.write();
+id로 찾기    #===>  document.getElementById()
+class로 찾기 . ===>  document.getElementByClassNme()
+document.cookie 프로퍼티
+
+이벤트종류,
+마우스이벤트 mouseover, mouseout, 등등
+폼(입력양식)이벤트 - submit, change, reset 등등
+
+unbeforeload = 페이지 진짜 닫을것인지 물어보는 것,
+onbeforeunload -이벤트리스너
+
+마우스드래그햇을시 발생되는이벤트
+dragstart
+darg
+dragend
+
+기본base : 태그는 자바스크립트의 객체로 바뀐다. dom트리생성
+시작에는 window.onload = function으로 시작
+
+
+로딩순서
+위에서 아래로 로딩이되는것이 원칙.
+
+
+이벤트단계
+caturing - 태그를 찾아가는과정 (잘사용하지않음)
+targeting - 타겟을 찾았다.
+bubbling - 이벤트발생부분에서 위로 다시 올라감.
+
+이벤트취소, 버블링이 일어나 최상위까지 가려는것을 중간에서 막아버림. ruturn false; 사용
+
+타이머기능
+setTimeout  1번만 처리
+setInterval 정해진시간 간격으로 반복처리
+
+
+js페이지동작을 처리함.
+앨리먼트<>객체
+어드티뷰트<> 프로퍼티
+
+브라우저에서 사용가능한 객체
+window/document/event/location...
+
+자바스트립트 객체
+object array function string number boolean data math
+
+배열[] 함수() 객체{}
+
+
+
