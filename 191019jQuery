@@ -1,0 +1,70 @@
+CRUD SSS
+★★노드찾기,★★노드설정,★★노드탐색, ★★이벤트설정까지 ★노드효과주기
+
+태그는 객체!!!
+img = var img
+
+
+html -태그
+javascript - 객체
+node - DOM/BOM
+
+$document.ready();
+javascript엥서는 onload사용
+jqeury에서는 ready
+
+노드 - 태그엘리먼트 + 어트리뷰트 + 텍스트얼리먼트
+
+제이쿼리홈페이지에서 제이쿼리다운 (컴프레스트 언컴프레스드 둘다 다운)
+Download the compressed, production jQuery 3.4.1    .js      개발할때
+Download the uncompressed, development jQuery 3.4.1  min.js 서버에올릴때 막써있어서 용량이 적음.
+다운로드
+
+이벤트실행순서는 window.load > document.ready
+document.ready로 사용하길 선호하고 있음.
+
+제이쿼리로 찾기는 무조건 배열로 됨.
+1개이건 여러개이건 배열로 들어오게됨.
+
+배우는 함수는 crud로 정리할 것,
+addClass - class속성에 추가하고싶다.
+.css('','') - style속성에 추가하고싶다.
+
+태그[ ]속성
+$('a[target]')
+
+
+자바스크립 정규식 RegEx 객체
+정규표현식
+^:시작
+$:끝
+*:모든
+(~:~가있으면,)
+
+찾기속성
+1= id
+2= class
+3= 나머지 [ ]
+4= 태그명
+5= 자식찾기
+6= 자손찾기
+
+
+설정 
+1. 태그와 관련된 설정, 바꾸고 삭제하고 등등
+2. 태그에 따른 속성 설정
+
+엘리먼트설정
+html(태그넣을수있다) / text(태그넣을수없음)
+
+어트리뷰트설정
+css(),
+style, class, 일반attr(), removeAttr()
+
+input태그 어드리뷰트 설정
+value속성:val() 태그안에 value값을 가져올수도있고, 변경할수도있다.
+폼셀렉터속성:prop() /*보류*/
+
+사용방법이 css()와 val()동일함
+html()와text()동일함
+그외나머지 동일함
