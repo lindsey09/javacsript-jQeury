@@ -1,0 +1,40 @@
+설정매소드 6개
+attr
+css
+addClass
+removeClass
+val
+prop
+
+
+
+노드탐색
+css에서
+자식찾기 (>) , children
+자손(후손)찾기 (공백), find
+형제찾기 (+), 나를 제외한 같은 줄에있는 태그들
+first , prev / next, last- 부모를 찾고 찾아야함. - 형제찾기
+
+
+div>li
+('div').children('ul')
+div li
+('div').find('ul')
+
+기준으로 위에잇으면 부모를 통해서 찾아야함 first 바로위, prev 모든것 다
+기준으로 아래잇잇으면 부모를 통해서 찾아야함 last 바로아래, next 모든것 다
+
+silblings() 모든형제다찾기
+
+first() >> 부모찾고, 그 부모의 자식들찾고, 그 중 첫째찾기
+last() >> 부모찾고, 그부모의 자식들찾고, 그 중 막내찾기
+
+$('.children').on( 'click', function(){
+        $('#center').children('div#third').css('border','2px dotted orange');
+    });
+==>
+.children('div#third') 사이에 지정된값을 주면 찾는다.
+
+
+
+
