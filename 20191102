@@ -1,0 +1,62 @@
+4.노드(태그) 필터링
+필터셀렉터 = 필터링메서드 같은 맥락이라고 보면됨.
+
+필터셀렉터,  **모든배열은 0부터시작!!!!!
+$('td:eq(0)') - 첫번째
+$('td:eq(7)') - 여덟번째
+even 짝수, odd 홀수, ....
+
+$('td:gt(2)') gt- great then ( )를 기준으로 위 배열
+3번째 배열(wrapper 객체) 요소부터 마지막요소까지 선택
+$('td:lt(2)') lt - less then  ( )를 기준으로 아래 배열
+0,1번째 배열(wrapper 객체)  요소 선택
+
+$('td').fliter(':even'); = $('td:even');
+두개는 같은것임.
+
+
+
+
+5. 노드(태그) 조작
+before, after prepend append remove -태그만들기에 사용되는것
+태그나 엘리먼트를 추가하는 목적으로 사용되는것,
+
+before, after  형제 라인
+prepend append  하위라인(자식요소)
+
+before                   after             -형제라인
+	기준노드
+prepend                 append          -하위라인(자식요소)
+
+
+
+
+6.노드(태그) 위치와 크기
+자바스크립트가 어떻게 다루게되는지 알아보기.
+
+$(찾기).height( ) /  ( )에 값을 넣으면 설정이됨.
+$(찾기).innerheight( ) 패딩포함
+$(찾기).outerheight( ) 보더포함
+$(찾기).outerheight(true) 마진까지포함
+
+
+7.노드(태그) 효과주기
+(보인다와 감춘다.)
+
+
+$(찾기).show( 1000, 'linear', function(){ ...} )
+                  시간ms / 효과 / 효과이후엔 이렇게되야함.
+show(duration, easing, complete)
+$(찾기).show({ 
+	duration: 1000 , 
+	easing: 'linear', 
+	complete : function(){ ... }
+ });
+
+
+
+
+8.이벤트설정
+.on  기초
+.mouseover / .mouseout 외
+다양한이벤트종류
