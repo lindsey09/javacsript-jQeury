@@ -1,0 +1,42 @@
+$(찾기).animate( proterites, [duration], [easing], [complete])...
+
+
+태그(앨리먼트)의 위치이동
+1. margin-left(==x축), margin-top(==y축) 을 이용한 위치이동
+2. left(==x축), top(==y축) 을 이용한 위치 이동
+
+이벤트취소
+1. retrun false; ★★★★
+2. stopPropagation()
+3. preventDefault
+
+
+
+
+
+
+선택자
+$('select > option:selected')
+
+$('input[name="hobby"]:checked')
+$('input[type="text"]')
+$('input[type="radio"]:checked')
+$('input[type="checkbox"]:checked')
+속성으로찾는다
+$(div[속성명])
+
+
+
+이벤트단계
+1.capturing
+2.targeting
+3.bubbing
+제이쿼리는 주로 2,3번만 다룬다.
+이벤트핸들러안에서 이벤트취소 retrun false;
+
+이벤트설정은 on으로사용
+
+이벤트제거
+.off('click'); click만제거
+.off( ); 모두제거
+
