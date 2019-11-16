@@ -1,0 +1,38 @@
+플러그인 만들시 즉시함수기법을 사용해야함.
+(function($){
+
+})(jQuery)
+
+
+즉시함수
+- 함수를 정의함과 동시에 바로 실행되는 함수
+- 초기화 작업시 주로 사용된다.
+- jQurey
+
+var f = function (params) {
+        console.log(params)
+    }   
+    f('foo'); // var ~ function으로 함수를 만들고 f(); 로 함수를 호출해야지만 함수가 실행이 된다. => 함수호출 - 함수가실행된다 - foo출력
+    f('goo'); //=> 함수호출 - 함수가실행된다 - goo출력
+    //즉시함수 호출방법 -> 함수를 정의함과 동시에 호출, 재호출 불가
+    // 즉시함수 기본구조 : ( /*function(params){} */)(/*인자*/); 인자가  params로 들어가서 실행됨
+
+ ( function (params) {
+        console.log(params);
+    })( 'chu');
+
+
+// 왜 즉시함수를 사용하는가? 재호출이 되어서는 안되는 경우, 1회용,
+    ( function (params) {
+        console.log(params);
+    })/*-함수선언*/( 'chu');/*-함수호출*/
+
+
+
+
+플러그인만들기
+extend 사용할경우 2개이상 만들때사용-  많이없음.
+
+
+
+
