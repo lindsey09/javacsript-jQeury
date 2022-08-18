@@ -1,0 +1,24 @@
+Jquery CDN
+https://releases.jquery.com/
+해당사이트에서 min.js로 가져다 쓰면 됨
+EX) <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+$('선택자') = 선택자 가상클래스 빼고 다 됨
+
+$('div').click() // div를 클릭하면~ ()를 실행시켜줘
+
+
+
+ $(document).ready(function(){ // 익명함수/ 한번만 실행하고 말것 이것안에 계속 넣어주면 됨
+    $('div').click(function(){
+
+    function test(){
+        alert();
+    }
+
+});
+ //위에랑 아래랑 같은것임 아래는 js로만 .... 위에는 jquery
+  // document.querySelector('div').addEventListener('click', function(){
+  //     alert();
+  // )}
+
