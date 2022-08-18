@@ -149,3 +149,62 @@ let / const
 // console.log(test2);
 // const test3 = 3; // 절대 변경할 수 없는 값
 // test3 = 4;
+
+
+
+
+//짝수들만 출력하여 총합구하기
+
+function runContinue(){
+    var k = 0
+    for (var i=1; i<=10; i++){
+        if (i % 2 == 1){ // 짝수인지 홀수인지 판단하려고, i를 2로 나누었을때 나머지가 1과 같은지, 1이면 홀수로 넘김 
+            continue;    
+        }else{
+            k = k + i;   
+        }
+        alert(k); // 그떄 그때 나오는 값을 경고창으로 띄워주기
+    }
+    console.log(k); 
+}
+
+
+// var Test = 0; // w자바에서 많이 쓰임.
+
+// let test2 = 0;  //var처럼 사용할 수 있는 것 변경될 수 있는 값
+// test2 = 1;
+// console.log(test2);
+// const test3 = 3; // 절대 변경할 수 없는 값
+// test3 = 4;
+
+
+
+
+// *break 
+
+function forBreak(){
+    for (var i=1; i<=10; i++){
+        break; // 아래를 실행시키지 않고 바로 멈춤.
+        console.log(i);
+    }
+    console.log(i);  // for문을 돌지 않았기때문에 i=1 이 나옴
+}
+
+
+//
+function runBreak(){
+    //confirm(); // 확인 취소 나옴 / 확인이면 ture, 취소면 false
+    alert('0번째 반복문');
+    for( var i=1; i>0; i++){ //무한루프를 만들어야 함.
+        //console.log(i);
+        if (confirm('계속할래?') == true){   // 컨펌창을 띄우고 물어봐야함.  
+            
+            alert( i+'번째 반복문' ); // 경고창으로 띄움 
+
+        }else{
+            break;     // 그렇지 않으면 그만
+        }
+    }
+}
+
+
