@@ -208,7 +208,7 @@ function runBreak(){
 }
 
 
-//포틀린 - 아이폰 안드로이드 같이 호환되게 
+
 
 function addtodo(){
     for (var k=1; k<=10; k++) {
