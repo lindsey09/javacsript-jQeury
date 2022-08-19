@@ -228,7 +228,7 @@ let fruitsBasket = ['사과','감','감','배','포도','포도','딸기','포�
 
 function countFruit(name){
     let count=0;
-    fot (let i=0; i<fruitsBasket.length; i++){
+    for (let i=0; i<fruitsBasket.length; i++){
         let fruit = fruitsBasket[i];
         if(fruit == name){
             count += 1;
