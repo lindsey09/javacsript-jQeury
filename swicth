@@ -1,0 +1,60 @@
+/*
+? switch
+*/
+
+function numberTest(){
+    let numbValue = prompt('1~3중 하나 입력');
+
+    switch(numbValue){  //중간에 멈춤이 안됨. 그래서 break 넣어주어야 함 
+        case "1": // 무조건 같은것을 찾는다. 조건문 = 값들이 정해졌을때 사용
+            alert('1을 입력하셨습니다.')
+            break;
+        case "2":
+            alert('2을 입력하셨습니다.')    
+            break;
+        case "3":  
+            alert('3을 입력하셨습니다.')         
+            break;
+        default:
+            alert('값을 잘못입력하셨습니다.')
+            break;
+    }
+
+}
+
+
+
+// 예제1 홀수 짝수 판별
+
+function switchGrammar(){
+    let number = prompt('1~10 숫자를 입력하세요');
+    console.log(number);
+    let k = number % 2;
+    console.log(k);
+    switch(k){
+        case 1 : 
+            alert('홀수입니다.');
+            break;
+        default :
+            alert('짝수입니다.');
+            break;
+    }
+}
+
+
+//사칙연산
+
+function calculator(){
+    let a = prompt('첫번째 숫자를 입력하세요');
+    let b = prompt('사칙연산을 입력하세요');
+    let c = prompt('두번째 숫자를 입력하세요');
+    // console.log(typeof(a));
+    // console.log(1);
+    // console.log('1');
+    switch(b){
+        case () :
+            ----못했...ㅜㅜ 
+
+    }
+}
+
