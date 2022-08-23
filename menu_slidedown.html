@@ -64,41 +64,61 @@
             }
           });
         }
+           
+        // 윈도우 스크롤시top에 붙이기
+        let lnb = $('#lnb').offset().top;
+        
+        $(window).scroll(funciton(){
+            let window = $(this).scrollTop();
+
+            if(lnb <= window){
+                $('#lnb').addClass('jbFixed');
+            }else{
+                $('#lnb').removeClass('jbFixed');
+            }
+        })
+
       });
+
+
     </script>
     <style>
+        body{font-size:12px; background:#ccc;}
+        ul, li, ol{list-style: none;}
+        a{text-decoration: none; }
+        .container{height: 1500px;;}
+
       #lnb {
-        float: left;
-        width: 65%;
+        width: 80%;
+        margin:20px auto 0;
       }
       #lnb .lnb_wrap {
         position: relative;
-        float: left;
         overflow: hidden;
         width: 100%;
-        height: 80px;
-        min-height: 80px;
         transition: 0.5s all ease;
         -webkit-transition: 0.5s all ease;
         -moz-transition: 0.5s all ease;
         -ms-transition: 0.5s all ease;
         -o-transition: 0.5s all ease;
+        background:#eee;
       }
       #lnb .lnb_wrap > ul {
         width: 100%;
         height: 80px;
         padding: 0;
         margin: 0;
+        display:flex;
       }
       #lnb .lnb_wrap > ul > li {
-        float: left;
         width: 20%;
         height: 80px;
         text-align: left;
         padding: 0;
-      } /*1차메뉴추가시 width값을 조정합니다. ex)5개20%,4개16.6666%...*/
+      } 
       #lnb .lnb_wrap > ul > li > a {
         display: table;
+        table-layout: fixed;
         width: 100%;
         height: 100%;
         padding: 0;
@@ -111,7 +131,7 @@
         vertical-align: middle;
         padding: 0 20px;
         font-size: 1.4em;
-        font-weight: 500;
+        font-weight: bold;
         color: #000;
         line-height: 1.2em;
         text-align: center;
@@ -140,11 +160,11 @@
       }
       #header.header_on #lnb:hover .lnb_wrap {
         height: 380px;
-      } /*메뉴의 높이를 입력합니다.*/
+      }
       #lnb .lnb_wrap > ul > li:hover {
         background: #fff;
         transition: 0.2s all ease;
-      } /* 메뉴의 배경색상을 변경하세요. */
+      } 
       #lnb .lnb_wrap > ul > li:hover > a > p {
         color: #2c64e5;
       }
@@ -166,7 +186,7 @@
         letter-spacing: -0.5px;
       }
       #lnb .lnb_wrap > ul > li:hover .lnb_sub {
-        background: #f7f8fb;
+        background: #dcc;
       } /* 메뉴의 배경색상을 변경하세요. */
       #lnb .lnb_wrap > ul > li:hover .lnb_sub li a {
         color: #000;
@@ -376,6 +396,12 @@
           </div>
         </div>
       </div>
+    </section>
+
+
+    <section class="container">
+
+
     </section>
   </body>
 </html>
