@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script>
+
+
+		function main_lnb(){
+TmenuTG = $('.lnb_wrap');
+Tmenu_H = $('.lnb_wrap').height();
+Tpo = $('#header').height();
+TmenuTG.find('> ul > li a').on('mouseenter',function(){
+	var position = $(window).scrollTop();
+	if(position <= Tpo){
+		$("#header").addClass("header_on");
+	}
+});
+TmenuTG.on('mouseleave',function(){
+	setTimeout(function() {
+		$("#header").removeClass("header_on");
+	}, 140);
+});	
+$("#lnb").on('mouseenter',function(){
+	var position = $(window).scrollTop();
+	if(position <= Tpo){
+		$("#header").addClass("header_on");
+	}
+});
+$("#lnb").on('mouseleave',function(){
+	setTimeout(function() {
+		$("#header").removeClass("header_on");
+	}, 140);
+});	
+TmenuTG.find('> ul > li').on(' mouseleave',function(event){
+	if(event.type=='mouseenter'){
+		if(!$(this).hasClass('current')){
+			$(this).addClass('current');
+		}
+	}else{
+		if(!$(this).hasClass('actived')){
+			$(this).removeClass('current');
+		}
+	}
+});	
+}
+
+
+$(document).ready(function() {
+main_lnb();
+});
+
+$(window).load(function() {	
+var hasFocus = $('#lnb').is(':hover');
+if(hasFocus){			
+	$("#header").addClass("header_on");	
+	$('.lnb_wrap > ul > li').each(function(index, item){ 
+		var hasFocus_sub = $(this).is(':hover');
+		if(hasFocus_sub){
+			$(this).addClass("current");
+		}			
+	});
+}
+});
+
+
+</script>
+	<style>
+#lnb { float:left; width:65%;}
+#lnb .lnb_wrap {position:relative; float:left; overflow:hidden; width:100%; height:80px; min-height:80px; transition: 0.5s all ease; -webkit-transition: 0.5s all ease; -moz-transition: 0.5s all ease; -ms-transition: 0.5s all ease; -o-transition: 0.5s all ease;}
+#lnb .lnb_wrap > ul {width:100%; height:80px; padding:0; margin:0; } 
+#lnb .lnb_wrap > ul > li { float:left; width:20%; height:80px; text-align:left; padding:0;} /*1차메뉴추가시 width값을 조정합니다. ex)5개20%,4개16.6666%...*/
+#lnb .lnb_wrap > ul > li > a { display:table; width:100%; height:100%; padding:0; margin:0;} 
+#lnb .lnb_wrap > ul > li > a > p {position:relative; width:100%; display:table-cell; vertical-align:middle; padding:0 20px; font-size:1.4em; font-weight:500; color:#000; line-height:1.2em; text-align: center;;}
+#lnb .lnb_wrap > ul > li > a > p:after {display: block; content: ""; width:0; height:2px; margin-top:0px; background:#2c64e5;  position: absolute; bottom:0; left:0;  -webkit-transform: translateX(0%);  transform: translateX(0%);  transition: 0.5s all ease; -webkit-transition: 0.5s all ease; -moz-transition: 0.5s all ease; -ms-transition: 0.5s all ease; -o-transition: 0.5s all ease;}
+#lnb .lnb_wrap > ul > li:hover > a > p:after , #lnb .lnb_wrap > ul > li.actived > a > p:after { width:100%;} 
+#header.header_on #lnb:hover .lnb_wrap { height:380px;  } /*메뉴의 높이를 입력합니다.*/
+#lnb .lnb_wrap > ul > li:hover {background:#fff; transition: 0.2s all ease;} /* 메뉴의 배경색상을 변경하세요. */
+#lnb .lnb_wrap > ul > li:hover > a > p { color:#2c64e5;}
+#lnb .lnb_sub {position:relative; z-index:1; text-align:left; width:100%; height:380px; padding:20px 0;} /*메뉴의 높이를 입력합니다.*/
+#lnb .lnb_sub li a { display:block; color:#222; padding:0 20px; margin-bottom:10px; line-height:1.5em; font-size:1em; letter-spacing:-0.5px;}
+#lnb .lnb_wrap > ul > li:hover .lnb_sub {background:#F7F8FB;} /* 메뉴의 배경색상을 변경하세요. */
+#lnb .lnb_wrap > ul > li:hover .lnb_sub li a { color:#000; transition: 0.3s all ease;}
+#lnb .lnb_wrap > ul > li:hover .lnb_sub li a:hover { color:#2c64e5; transition: 0.3s all ease;}
+
+	
+.jbFixed {min-height:auto !important; }
+.jbFixed .header_in { position:fixed !important; top:0px; width:100% !important; background:rgba(255, 255, 255, 1); box-shadow: 1px 2px 4px 1px rgba(0,0,0,.05); }
+.jbFixed .header_in .header_line {width:100%; height:80px; border-bottom:1px solid #eee; }
+.jbFixed .header_in #lnb { top:0; }
+.jbFixed .header_in #lnb:hover .lnb_wrap{height:280px; } /*메뉴의 높이를 입력합니다.*/
+
+	</style>
+</head>
+
+<body>
+	
+	
+	<section id="header_wrap">
+
+		<div id="header" class="jbMenu">
+
+			<div class="header_in">
+
+				<div class="header_line">
+					<div class="wrap_box">
+
+
+						<div id="lnb">						
+							<div class="lnb_wrap" style="position:relative;">
+
+								<ul id="mainMenu">								
+																			
+										<li>
+											<a href="/theme/paving/html/company/01.php" target="_self"><p>회사소개<span></span></p></a>
+											<ul class="lnb_sub">													
+																									<li><a href="/theme/paving/html/company/01.php" target="_self">회사소개</a></li>
+																									<li><a href="/theme/paving/html/company/02.php" target="_self">회사연혁</a></li>
+																									<li><a href="/bbs/board.php?bo_table=certi" target="_self">인증/특허사항</a></li>
+																									<li><a href="/theme/paving/html/company/03.php" target="_self">찾아오시는길</a></li>
+																							</ul>
+										</li>
+										
+																			
+										<li>
+											<a href="/theme/paving/html/business/01.php" target="_self"><p>시공분야<span></span></p></a>
+											<ul class="lnb_sub">													
+																									<li><a href="/theme/paving/html/business/01.php" target="_self">허니콤투수포장</a></li>
+																									<li><a href="/theme/paving/html/business/02.php" target="_self">허니콤투수블럭</a></li>
+																									<li><a href="/theme/paving/html/business/03.php" target="_self">아라이스톤</a></li>
+																									<li><a href="/theme/paving/html/business/04.php" target="_self">콩자갈포장</a></li>
+																									<li><a href="/theme/paving/html/business/05.php" target="_self">크리스탈타일블럭</a></li>
+																									<li><a href="/theme/paving/html/business/06.php" target="_self">폴리칼라투수골재</a></li>
+																									<li><a href="/theme/paving/html/business/07.php" target="_self">에코블럭</a></li>
+																									<li><a href="/theme/paving/html/business/08.php" target="_self">투수그레이팅</a></li>
+																									<li><a href="/bbs/board.php?bo_table=busi09" target="_self">조경시공</a></li>
+																							</ul>
+										</li>
+										
+																			
+										<li>
+											<a href="/bbs/board.php?bo_table=ex" target="_self"><p>시공사례<span></span></p></a>
+											<ul class="lnb_sub">													
+																									<li><a href="/bbs/board.php?bo_table=ex" target="_self">시공사례</a></li>
+																							</ul>
+										</li>
+										
+																			
+										<li>
+											<a href="/bbs/board.php?bo_table=data" target="_self"><p>자료실<span></span></p></a>
+											<ul class="lnb_sub">													
+																									<li><a href="/bbs/board.php?bo_table=data" target="_self">기술자료실</a></li>
+																									<li><a href="/bbs/board.php?bo_table=movie" target="_self">동영상자료실</a></li>
+																							</ul>
+										</li>
+										
+																			
+										<li>
+											<a href="/bbs/board.php?bo_table=notice" target="_self"><p>고객지원<span></span></p></a>
+											<ul class="lnb_sub">													
+																									<li><a href="/bbs/board.php?bo_table=notice" target="_self">공지&뉴스</a></li>
+																									<li><a href="/bbs/board.php?bo_table=inquiry" target="_self">고객문의</a></li>
+																							</ul>
+										</li>
+										
+																		
+								</ul>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+</body>
+</html>
