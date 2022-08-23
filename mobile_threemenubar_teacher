@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuey 모바일 햄버거 메뉴</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- 빌더(압축)된 코드 -->
+    <script>
+        $(document).ready(function(){
+            $('div').click(function(){
+                $('div').toggleClass('active'); 
+            });
+           
+
+        });
+    </script>
+    <style>
+        div{width:100px; padding:100px; cursor: pointer;}
+        div span{display: block; height:5px; background:#000; transition:1s;}
+        div span:not(:last-child){margin-bottom:30px}
+        div.active span{background:#f00;}
+        div.active span:nth-child(1){transform: translateY(35px) rotate(45deg)/*기본설정값은 Z축 기준으로 움직임*/; }
+        /*두개의 바가 같은 축에서 움직여야 하기 때문에 tarnslateY로 축을 옮겨준다.*/
+        div.active span:nth-child(2){opacity: 0; transform:translateX(100px);}
+        div.active span:nth-child(3){transform: translateY(-35px)  rotate(-45deg)}
+    </style>
+</head>
+<body>
+    
+       <div>
+            <span></span>
+            <span></span>
+            <span></span>
+       </div>
+       <nav>
+
+       </nav>
+</body>
+</html>
