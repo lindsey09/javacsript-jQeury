@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Untitled Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    
+    <script src="http://donga-tech.com/theme/donga/js/jquery.dbNaviFull.js?ver=210618"></script>
+    
+    
+    
+    
+    
+    
+    
+    </head>
+    <body>
+    
+    <style>
+/*í—¤ë“œë©”ë‰´*/
+#header_wrap {position: fixed; width:100%; border-bottom:1px solid #ddd; background-color:#fff;  z-index:10}
+#header_wrap #hd_wrapper .hd_login a { color:#333}
+#header {position:absolute;left:0;top:0px; max-width: 1400px; width:100%; left: 50%; transform:translateX(-50%) ;z-index:6;height:80px;-webkit-transition:all .3s ease;-moz-transition: all .3s ease;-ms-transition: all .3s ease;-o-transition: all .3s ease;transition: all .3s ease;}
+#header .header-inner {width:100%; height:100% }
+#header .gnb { list-style:none; height:100%; position:absolute; right:0px}
+#header .gnb > li { float:left; position:relative; display:inline-block; width:100px;  vertical-align:middle; text-align:center;}
+#header .gnb > li > a {display:inline-block; line-height:1em; width:100%; color:#ddd; font-size:16px; letter-spacing:-0.5px; font-weight:600; text-decoration:none;}
+#header .gnb > li > a:hover {color: #fff}
+#header .gnb > li.active {background-color: #b0905e}
+#header .gnb > li.active > a {color: #fff}
+#header .gnb .login {  font-size:12px; width:70px; color:#fff}
+#header .gnb .join { font-size:12px; color:#fff; margin-left:20px}
+#header .gnb .login a { color:#ddd; font-size:12px}
+#header .gnb .login a:hover { color:#fff}
+#header .gnb .join a { color:#ddd; font-size:12px}
+#header .gnb .join a:hover { color:#fff}
+
+#header .header-inner .menu {cursor:pointer;text-indent:-9999px; position:absolute;top:29px; left:50%;width:25px;height:20px; background-image:url(../img/cate_more.gif); margin-left:200px; border:0; display:none}
+#header .header-inner .menu.on {background-image: url(../img/cate_close.gif)}
+
+#header .gnb > li, #header #right-side-open {height:80px;line-height:80px; -webkit-transition: all .3s ease;-moz-transition: all .3s ease;-ms-transition: all .3s ease;-o-transition: all .3s ease;transition: all .3s ease;}
+#header #right-side-open { position:absolute; right:0; width:100px; cursor:pointer; border-left:1px solid rgba(255,255,255,0.3); text-align:center; display: inline-block; }
+#header #right-side-open span{display:inline-block;width:20px; height:20px;font-size:20px;line-height:1em;margin-top:-10px; margin-left:-10px; position:absolute; top:50%;left:50%; color:#fff;}
+#header .gnb .snb {list-style:none; display:none;}
+#header #logo { margin-left:25px; padding:0}
+#header #logo a { display:block; width:100px; height:80px; line-height:80px}
+#header #logo img { width:100%}
+#header .gnb .snb,.device-md #header .gnb .snb{display: none;position: absolute;right: -82px;width: 200px; top:80px; border-top: 0;background-color: #000; z-index:2}
+#header .gnb .snb li { font-size:14px; line-height:3.1; text-align:left; border-top:1px solid #414141;}
+#header .gnb .snb li a { color:#FFF; display:block; padding-left:20px}
+#header .gnb .snb li a:hover {color:#fff;  display:block; background-color:#2253b8; text-decoration:none; line-height:3.1}
+#header .gnb .snb li:first-child { border-top:0}
+
+
+@media screen and (max-width: 1100px) {
+	.visual_slider  { margin-top:0}
+	 /*Ã«Â²â€žÃ­Å Â¼*/
+	#open-button{position:fixed;z-index:12;right:15px;padding-top:23px;width:75px; height:80px;-webkit-transition:all .3s ease-out;-moz-transition:all .3s ease-out;-o-transition:all .3s ease-out;transition:all .3s ease-out;cursor:pointer;display:block; }
+	#open-button .navicon-line{position:absolute;width:20px;height:2px;border-radius:1px;background:#333;-webkit-transition:all .7s ease-out;-moz-transition:all .7s ease-out;-o-transition:all .7s ease-out;transition:all .7s ease-out}
+	#open-button .nl1 {top: 11px;right: 10px; width:30px;}
+	#open-button .nl2 {top: 19px;right: 10px; width:24px;}
+	#open-button .nl3 {top: 27px;right: 10px; width:30px;}
+	#open-button.on>div>div{transform:rotate(225deg);-ms-transform:rotate(225deg);-webkit-transform:rotate(225deg);width:25px;position:absolute;top:15px;right:10px;margin:0;padding:0;background-color:#fff;}
+	#open-button.on>div>div:first-child{transform:rotate(135deg);-ms-transform:rotate(135deg);-webkit-transform:rotate(135deg)}
+	#open-button.scrolled .navicon-line {background-color: #333;}
+	#open-button.on.scrolled >div>div{background-color:#fff;}
+	/*Ã«Â²â€žÃ­Å Â¼*/
+	
+	
+	
+	
+}
+
+@media screen and (max-width: 980px) {
+    #header { display:block; background-color:transparent; top:0; position:fixed}
+	#header #logo { width:120px; display:block}
+	#header #logo img{width:120px;}
+	#header .gnb { display:none}
+	.scrolled #open-button .navicon-line  { background-color:#333}
+    .scrolled #open-button.on .navicon-line { background-color:#fff}
+}
+
+@media screen and (max-width: 680px) {
+    
+	#hd_wrapper { display:none}
+}
+
+
+
+/*ëª¨ë°”ì¼ ì˜¤ë¥¸ìª½ ë©”ë‰´*/
+#right-side {background-color:#333;position:fixed; z-index:11; top:0;right:-400px;max-width:400px; width:100%; height:100%; color:#FFF; padding:30px;-webkit-transition: right .3s ease;-moz-transition: right .3s ease;-ms-transition: right .3s ease;-o-transition: right .3s ease;transition: right .3s ease; box-sizing:border-box; overflow:auto;}
+#right-side .side_gnb .call a {text-align:center; display:block;position:relative;background:#187ddb; color:#fff; font-weight:bold; height:5.0em; line-height:5em; border-radius:3px; margin-top:0px; padding:2px 0 4px 0; font-size:16px; font-weight:normal; }
+#right-side .side_gnb .call a i{font-size:22px;}
+#right-side #btn-close-right-side {position:absolute;top:20px;right:0;color:#fff;width:60px;text-align:center;line-height:40px; font-size:16px; cursor:pointer}
+#right-side #btn-close-right-side .fa.fa-times { font-size:18px; padding-top:20px}
+.right-side-on #right-side {right:0;}
+.right-side-on #wrapper { left:-300px; }
+.right-side-on #header { left:-300px; }
+.right-side-on #rs-overlay {display:block;}
+
+.quick_menu {width:100%; margin:auto; padding-top:20px}
+.quick_menu ul { text-align:center}
+.quick_menu li{display:inline-block; margin-left:-3px; width:80px; border-right:1px solid #ddd;}
+.quick_menu li:last-child { border:0} 
+.quick_menu li a{display:block; box-sizing:border-box; color:#f5f5f5; letter-spacing:-0.8px; text-align:center; position:relative;  font-size:12px}
+.quick_menu li a:hover{color:#fff;backface-visibility:hidden}
+.quick_menu li a.on{color:#fff;border-bottom-color:#FF3300;border-bottom-width:2px;border-bottom-style:solid}
+
+.quick_kakao{text-align:center; height:35px; background-color:#ffd800; display:inline-block; clear:both}
+.quick_kakao a{display:block;position:relative;background:#ffd800}
+.quick_kakao a img{display:block;margin:0 auto}
+
+.side_gnb{position:relative;width:100%;float:left;padding-top:20px;}
+.side_gnb p{color:#fff; text-align:center; padding:20px }
+.side_gnb .menu-list{display:block;position:relative;border-bottom:1px solid #555; margin-top:60px}
+.side_gnb .menu-list>li>a{display:block;position:relative;color:#fff;font-size:16px;line-height:3.8em;padding:0 1.0em;border-top:1px solid #555; text-decoration:none}
+.side_gnb .menu-list>li>a i{display:block;position:absolute;top:50%;transform:translateY(-75%) rotate(135deg);-webkit-transform:translateY(-75%) rotate(135deg);right:1.5em;width:5.31%;max-width:32px;border:1px solid #f2f2f2;border-left-width:0;border-bottom-width:0;transition:transform .3s ease;-webkit-transition:-webkit-transform .3s ease;-ms-transition:transform .3s ease}
+.side_gnb .menu-list>li.on>a i{-webkit-transform:translateY(-25%) rotate(315deg);transform:translateY(-25%) rotate(315deg)}
+.side_gnb .menu-list>li>a i:before{content:"";display:block;position:relative;padding-top:100%}
+.side_gnb .depth-2{display:none;}
+.side_gnb .depth-2>li { background-color:#ddd}
+.side_gnb .depth-2>li>a{display:block;color:#f2f2f2;font-size:1.2em;line-height:3.0em;padding:0 1.5em 0 2.2em;border-bottom:1px solid #fff; color:#000}
+/*ëª¨ë°”ì¼ ì˜¤ë¥¸ìª½ ë©”ë‰´*/
+
+
+
+
+        /* ë©”ì¸ë©”ë‰´ */
+#category-wrap{width:100%;clear:both;background-attachment:scroll;position:relative;z-index:3}
+#gnb h2 {display:none;}
+#gnb * {margin: 0;padding: 0;list-style: none;}
+#gnb { border-top:1px solid #ddd; position:relative;margin:0;z-index:5;background-repeat:no-repeat;background-position:center top;width:100%;box-sizing:border-box;background-color:#FFF;padding:10px  0}
+#gnb .logo {position: absolute; top:12px; }
+#gnb img {border: 0; width:100%}
+#gnb a{ display:inline-block}
+
+#gnb .main-wrapper {max-width:1200px; margin:0 auto;}
+#gnb .main{ height:69px;background-repeat:no-repeat;background-position:center top; box-sizing:border-box;margin:0 auto; display:block}
+#gnb .main li{float:left;line-height:68px; display:inline-block; text-align:center}
+#gnb .main li a{display:block;width:100%;color:#333;font-size:18px;font-weight:500;margin:0;padding:0; letter-spacing:-0.5px }
+#gnb .main li a:hover{color:#000; letter-spacing:-0.5px }
+
+#gnb .main li a img {margin-top: 15px;}
+#gnb .main li.main_select {}
+#gnb .mask {position:absolute;width:100%;height:200px;overflow:hidden;background-color:#FFF;z-index:5;border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:#ddd;}
+#gnb .mask .sub-set-wrapper {max-width:1200px; min-height:200px; margin:0 auto; position:relative; background-image: url(../img/menubar_bg.png); background-repeat:no-repeat; background-position:50px bottom}
+#gnb .mask .sub-set-wrapper_e {max-width:1200px; min-height:200px; margin:0 auto; position:relative; background-image: url(../img/menubar_bg_e.png); background-repeat:no-repeat; background-position:50px bottom}
+
+#gnb .sub-set{ float:right; box-sizing:border-box;  margin:10px auto 0}
+#gnb .sub-set ul {float: left;}
+#gnb .sub-set ul li{height:26px; display:block; text-align:center}
+#gnb .sub-set ul li a{display:block;font-size:14px;color:#555;line-height:30px;padding-top:2px;padding-bottom:2px;padding-left:0; letter-spacing:0}
+#gnb .sub-set ul li a:hover{color:#fff; letter-spacing:0px; background:#006cb9;}
+
+#gnb .mask .sub-set ul { display:inline-block;  text-align:center}
+#gnb .mask .sub-set .set1 {float: left; width:130px}
+#gnb .mask .sub-set .set2 {float: left; width:130px}
+#gnb .mask .sub-set .set3 {float: left; width:130px}
+#gnb .mask .sub-set .set4 {float: left; width:130px}
+#gnb .mask .sub-set .set5 {float: left; width:130px}
+#gnb .mask .sub-set .set6 {float: left; width:130px}
+
+
+#gnb .main .menu1 { width:130px}
+#gnb .main .menu2 { width:130px}
+#gnb .main .menu3 { width:130px}
+#gnb .main .menu4 { width:130px}
+#gnb .main .menu5 { width:130px}
+#gnb .main .menu6 { width:130px}
+
+@media screen and (max-width:1200px) {
+
+#gnb .main { padding-right:2%}
+#gnb .sub-set { padding-right:2%}
+}
+
+@media screen and (max-width:1100px) {
+#gnb .main li { display:none}
+#gnb .logo {position: absolute; top:28px; left:10px}
+	#gnb .logo img{width: 230px;}
+#gnb .mask { display:none}
+}
+
+@media screen and (max-width:640px) {
+	#gnb .logo img{width: 200px;}
+}
+
+
+
+    </style>
+    <script>
+    $(function() {
+        
+        $('#open-button').click(function(e) {
+             e.preventDefault();
+             var $btn = $(this);
+             if($btn.hasClass('on')) {
+                 $('body').removeClass('right-side-on');
+                $btn.removeClass('on');
+                $btn.addClass('off');
+             } else {
+                 $('body').addClass('right-side-on');
+                $btn.removeClass('off');
+                $btn.addClass('on');
+             }
+            return false;
+        });
+        
+        $('.gnb > li').mouseenter(function(e) {
+            $(this).find('.snb').stop().slideDown(200);
+            $('#header #gnb-bg').height($('.gnb').height()).show();
+        });
+        $('.gnb > li').mouseleave(function(e) {
+            $(this).find('.snb').stop().slideUp(200);
+            $('#header #gnb-bg').height($('.gnb').height()).show();
+        });
+        
+        $(window).scroll(function(e) {
+            if($(this).scrollTop() > 5) {
+                $('body').addClass('scrolled');
+            }
+            else {
+                $('body').removeClass('scrolled');		
+            }
+        });
+        
+        
+        //사이드 메뉴 열림 닫힘	{{{=========================================
+        $('.menu-list > li > a').click(function(e) {
+            e.preventDefault();
+            var $this = $(this);
+              $('.menu-list > li > a').each(function(index, element) {
+                if($this[0] == $(this)[0]) {
+                    if(!$(this).parent().hasClass('on')) {
+                        $(this).parent().addClass('on');
+                        $(this).next().stop().slideDown(300);
+                    }
+                    else {
+                        $(this).parent().removeClass('on');
+                        $(this).next().stop().slideUp(300);
+                    
+                    }
+                }
+                else {
+                    if($(this).parent().hasClass('on')) {
+                        $(this).parent().removeClass('on');
+                        $(this).next().stop().slideUp(300);
+                    }
+                }
+            });
+        });
+        //사이드 메뉴 열림 닫힘	}}}=========================================
+        
+        
+    });
+    
+    </script>
+    <div id="right-side">
+     
+        <nav class="side_gnb">
+            <div class="call"><a href="tel:0328140161"><li><i class="xi-call xi-fw"></i>&nbsp;동아정밀공업 전화연결</li></a></div>
+            <ul class="menu-list">
+                            <li class=""> 
+                    <a href="/theme/donga/html/ceo_message.php" target="_self"> 회사소개 <i class="fa fa-arrow-left"></i></a>
+                                    <ul class="depth-2">
+                                            <li><a href="/theme/donga/html/ceo_message.php" target="_self"> CEO인사말</a></li>
+                                            <li><a href="/theme/donga/html/history.php" target="_self"> 회사연혁</a></li>
+                                            <li><a href="/theme/donga/html/organization.php" target="_self"> 회사조직</a></li>
+                                            <li><a href="/bbs/board.php?bo_table=certi" target="_self"> 인증현황</a></li>
+                                            <li><a href="/theme/donga/html/location.php" target="_self"> 회사위치</a></li>
+                                        </ul>
+                                </li>
+                            <li class=""> 
+                    <a href="/theme/donga/html/content01.php" target="_self"> 생산공정 <i class="fa fa-arrow-left"></i></a>
+                                    <ul class="depth-2">
+                                            <li><a href="/theme/donga/html/content01.php" target="_self"> 생산공정</a></li>
+                                            <li><a href="/theme/donga/html/layout.php" target="_self"> 공장레이아웃</a></li>
+                                        </ul>
+                                </li>
+                            <li class=""> 
+                    <a href="/bbs/board.php?bo_table=pro01" target="_self"> 제품소개 <i class="fa fa-arrow-left"></i></a>
+                                    <ul class="depth-2">
+                                            <li><a href="/bbs/board.php?bo_table=pro01" target="_self"> 다이캐스팅부문</a></li>
+                                            <li><a href="/bbs/board.php?bo_table=pro02" target="_self"> 산업용공구부문</a></li>
+                                        </ul>
+                                </li>
+                            <li class=""> 
+                    <a href="/theme/donga/html/fac01.php" target="_self"> 설비현황 <i class="fa fa-arrow-left"></i></a>
+                                    <ul class="depth-2">
+                                            <li><a href="/theme/donga/html/fac01.php" target="_self"> 주조설비</a></li>
+                                            <li><a href="/theme/donga/html/fac02.php" target="_self"> 가공/연마설비</a></li>
+                                            <li><a href="/theme/donga/html/fac03.php" target="_self"> 도금설비</a></li>
+                                        </ul>
+                                </li>
+                            <li class=""> 
+                    <a href="/bbs/board.php?bo_table=customer" target="_self"> 주요고객사 <i class="fa fa-arrow-left"></i></a>
+                                    <ul class="depth-2">
+                                            <li><a href="/bbs/board.php?bo_table=customer" target="_self"> 주요고객사</a></li>
+                                        </ul>
+                                </li>
+                            <li class=""> 
+                    <a href="/bbs/write.php?bo_table=inquiry" target="_self"> 제품문의 <i class="fa fa-arrow-left"></i></a>
+                                    <ul class="depth-2">
+                                            <li><a href="/bbs/write.php?bo_table=inquiry" target="_self"> 제품문의</a></li>
+                                        </ul>
+                                </li>
+                        </ul>
+        </nav>
+    </div>
+    <!--right-side끝--> 
+    
+    <style>
+    #header_wrap #top {
+        height:89px;
+        max-width:1400px;
+        margin: 0 auto;
+        background-color:#FFF;
+        clear:both
+    }
+        
+        .lung{width:110px; height:30px; border:1px solid #444; margin:-10px 0 0 20px; padding:5px; font-size:14px;}
+        .lung .on{}
+        .lung option {height:40px; border:1px solid #ddd;}
+    </style>
+    <!-- {{{ #wrapper -->
+    <div id="wrap">
+    <div id="header_wrap">
+          
+           
+        <div id="category-wrap">
+            <nav id="gnb">
+                <h2>메인메뉴</h2>
+                <div class="main-wrapper clearfix">
+                    <div class="logo"><a href="/"><img src="http://donga-tech.com/theme/donga/img/logo.jpg" alt="로고"></a></div>
+                    <ul class="main clearfix" style="float:right;">
+                                            <li class="menu1"><a href="/theme/donga/html/ceo_message.php" target="_self">회사소개</a></li>
+                                            <li class="menu2"><a href="/theme/donga/html/content01.php" target="_self">생산공정</a></li>
+                                            <li class="menu3"><a href="/bbs/board.php?bo_table=pro01" target="_self">제품소개</a></li>
+                                            <li class="menu4"><a href="/theme/donga/html/fac01.php" target="_self">설비현황</a></li>
+                                            <li class="menu5"><a href="/bbs/board.php?bo_table=customer" target="_self">주요고객사</a></li>
+                                            <li class="menu6"><a href="/bbs/write.php?bo_table=inquiry" target="_self">제품문의</a></li>
+                                        </ul>
+                </div>
+                <div class="mask">
+                    <div class="sub-set-wrapper clearfix">
+                        <div class="sub-set">
+                                                    <ul class="set1">
+                                                            <li><a href="/theme/donga/html/ceo_message.php" target="_self">CEO인사말</a></li>
+                                                            <li><a href="/theme/donga/html/history.php" target="_self">회사연혁</a></li>
+                                                            <li><a href="/theme/donga/html/organization.php" target="_self">회사조직</a></li>
+                                                            <li><a href="/bbs/board.php?bo_table=certi" target="_self">인증현황</a></li>
+                                                            <li><a href="/theme/donga/html/location.php" target="_self">회사위치</a></li>
+                                                        </ul>
+                                                    <ul class="set2">
+                                                            <li><a href="/theme/donga/html/content01.php" target="_self">생산공정</a></li>
+                                                            <li><a href="/theme/donga/html/layout.php" target="_self">공장레이아웃</a></li>
+                                                        </ul>
+                                                    <ul class="set3">
+                                                            <li><a href="/bbs/board.php?bo_table=pro01" target="_self">다이캐스팅부문</a></li>
+                                                            <li><a href="/bbs/board.php?bo_table=pro02" target="_self">산업용공구부문</a></li>
+                                                        </ul>
+                                                    <ul class="set4">
+                                                            <li><a href="/theme/donga/html/fac01.php" target="_self">주조설비</a></li>
+                                                            <li><a href="/theme/donga/html/fac02.php" target="_self">가공/연마설비</a></li>
+                                                            <li><a href="/theme/donga/html/fac03.php" target="_self">도금설비</a></li>
+                                                        </ul>
+                                                    <ul class="set5">
+                                                            <li><a href="/bbs/board.php?bo_table=customer" target="_self">주요고객사</a></li>
+                                                        </ul>
+                                                    <ul class="set6">
+                                                            <li><a href="/bbs/write.php?bo_table=inquiry" target="_self">제품문의</a></li>
+                                                        </ul>
+                                                </div>
+                    </div>
+                </div>
+                        </nav>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        jQuery('#gnb').dbNaviFull();
+    });
+    </script>
+    </div>
+    
+    
+    
+    
+    <script>
+    $(function() {
+        $('#header button.menu').click(function(e) {
+            var $this = $(this);
+            if($this.hasClass('on')) {
+                $this.removeClass('on');
+                //$('body').removeClass('all');
+                $this.blur();
+                $('#header .all').stop().slideUp();
+            } else {
+                $this.addClass('on');
+                //$('body').addClass('all');
+                $this.blur();
+                $('#header .all').stop().slideDown();
+            }
+        });
+    });
+    
+    $(window).scroll(function(e) {
+            if($(this).scrollTop() > 5) {
+                $('body').addClass('scrolled');
+            }
+            else {
+                $('body').removeClass('scrolled');		
+            }
+        });
+    </script>
+         
+             
+             
+        <div id="open-button">
+            <div style="position:relative;">
+                <div class="navicon-line nl1"></div>
+                <div class="navicon-line nl2"></div>
+                <div class="navicon-line nl3"></div>
+            </div>
+        </div>
+    
+    
+    
+    <script>
+      AOS.init();
+    </script>
+    
+  </body>
+</html>
