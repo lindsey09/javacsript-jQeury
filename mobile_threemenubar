@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuey load</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- 빌더(압축)된 코드 -->
+    <script>
+        $(document).ready(function(){
+
+            $('ul').click(function(){
+                let menubar = $('ul li:first-child').hasClass('cross01');
+                if (menubar == false){
+                    $('ul li:first-child').addClass('cross01');
+                    $('ul li:nth-child(2)').css('display','none');
+                    $('ul li:last-child').addClass('cross02');
+                }else{
+                    $('ul li:first-child').removeClass('cross01');
+                    $('ul li:nth-child(2)').css('display','block');
+                    $('ul li:last-child').removeClass('cross02');
+                }
+            })
+
+        });
+    </script>
+    <style>
+        ul{list-style:none;  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);}
+        ul li{width:100px; height: 8px; background:#222; margin-bottom:15px; transition:.5s;}
+        .cross01{transform:rotate(45deg); margin-top:22px;}
+        .cross02{transform:rotate(-45deg); margin-top:-22px;}
+        .menu_container{width: 200px; height: 800px; background:#eee; }
+        
+    </style>
+</head>
+<body>
+    
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <div class="menu_container">
+            
+        </div>
+
+</body>
+</html>
