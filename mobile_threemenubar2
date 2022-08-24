@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuey 모바일 햄버거 메뉴</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- 빌더(압축)된 코드 -->
+    <script>
+        $(document).ready(function(){
+            $('div').click(function(){
+                $('div').toggleClass('active'); 
+                $('nav').toggleClass('active');
+            });
+            // 빈공간 검정색 배경을 클릭했을때, 다시 원복으로 사라지게 하기
+            $('nav').click(function(){   
+                $('nav').removeClass('active');
+                $('div').removeClass('active'); 
+            })
+
+        });
+    </script>
+    <style>
+        div{width:100px; padding:100px; cursor: pointer;}
+        div span{display: block; height:5px; background:#000; transition:.5s;}
+        div span:not(:last-child){margin-bottom:30px}
+        div.active span{background:#f00;}
+        div.active span:nth-child(1){transform: translateY(35px) rotate(45deg)/*기본설정값은 Z축 기준으로 움직임*/; }
+        /*두개의 바가 같은 축에서 움직여야 하기 때문에 tarnslateY로 축을 옮겨준다.*/
+        div.active span:nth-child(2){opacity: 0; /*transform:translateX(100px);*/}
+        div.active span:nth-child(3){transform: translateY(-35px)  rotate(-45deg)}
+
+        
+        nav{ width:100%;height: 100%; background:rgba(000,000,000,.8); position:fixed; left:100%; top:0;  /*pointer-events: none; /*포인터 되는 영역을 사라지게 해준다. 클릭안되게 만듬 */}
+        nav.active{left: 0; transition: 0.001s;} 
+        /* transition으로 나오는 시간을 엄청 짧게주고, ul은 transition 시간을 딜레이시킨다. 그러면 오른쪽에서 나오게 할 수 있음. */
+        nav ul{background:#ddd; padding:0; margin:0; list-style:none; width: 30%; height: 100%;  display:flex; flex-direction: column; align-items:center; justify-content: center; margin-left:100%; transition: 1s;}
+        nav.active ul{transition-delay: 0.3s; margin-left:70%; }
+        nav ul li:not(:last-child){margin-bottom:20px;}
+        nav ul li a{text-decoration: none; color:#000; font-size:30px; font-weight: bold;}
+        nav ul li:hover a{color:red}
+    </style>
+</head>
+<body>
+    
+       <nav>
+            <ul>
+                <li><a href="#">Menu1</a></li>
+                <li><a href="#">Menu2</a></li>
+                <li><a href="#">Menu3</a></li>
+                <li><a href="#">Menu4</a></li>
+            </ul>
+       </nav>
+
+       <div>
+            <span></span>
+            <span></span>
+            <span></span>
+       </div>
+
+</body>
+</html>
