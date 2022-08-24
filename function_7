@@ -1,0 +1,104 @@
+let names = [ 'Steven Paul Jobs',
+'Bill Gates',
+'Mark Elliot Zuckerberg',
+'Elon Musk',
+'Jeff Bezos',
+'Warren Edward Buffett',
+'Larry Page',
+'Larry ellison',
+'Tim Cook',
+'Lloyd Blankfein'
+] //array
+
+//array 함수
+
+// for (let i = 0; i<names.length; i++){
+//     console.log(names[i]);
+// }
+//원래는 이렇게 for문으로 사용했었음 
+
+
+// array 함수1. forEach()
+
+function printName(item){
+    console.log(item); //array이 안에 있는 아이템들을 forEach가 알아서 가져다 준다.
+}
+names.forEach(printName); //괄호안에 들어가는것은 매개변수 - 함수에 함수를 받는다.
+// 모든 배열함수는 함수를 매개변수로 받는다. 함수에 item을 넣어주면 알아서 들어간다.
+
+//function으로 함수를 만들지 않고 함수명 없는 구문을 바로 매개변수 자리에 넣어준다.
+names.forEach(function (item){
+    console.log(item); //array이 안에 있는 아이템들을 forEach가 알아서 가져다 준다.
+}); //옛날문법...
+
+//es6문법
+//names.forEach(()=>{}) 이렇게 만들어두고 사용할 수 있음
+names.forEach((item)=>{console.log(item)}); 
+//상기 한줄이여도 충분....
+names.forEach((item, index)=>{console.log(item, index)}); 
+//index도 추가해서 넣을 수 있음
+//반환하는 값이 없어서 변수를 만들어서 사용할 필요가 없음
+
+
+// array 함수2. map()
+let data = names.map((item)=>{ //반환하는 값이 있기 때문에 변수에 넣어줌
+    return item; //map함수는 리턴을 해주어야 함.
+});
+console.log(data); 
+//map인 경우 반드시 배열을 반환한다.
+
+//map을 언제 사용하나요?  = api나 json파일을 사용할 때 그 중 내가 원하는 조건을만 모아서 가져올 수 있다.
+let ceoList = [
+    {name:"Larry Page",age:"23",ceo:"true"},
+    {name:"Tim Cook",age:"40",ceo:"true"},
+    {name:"Elon Musk",age:"55",ceo:"false"}
+]
+
+//위 객체중 name만 모아서 프린트하고싶다.
+let data2 = ceoList.map((item)=>{
+    return item.name //아이템중 네임을 return으로 반환 
+});
+console.log(data2)
+
+
+// array 함수3. filter()
+let data3 = ceoList.filter((item)=>{  //조건이 필요하고 그 조건에 true 인 값만 반환
+    return item.age==23   //조건문
+});
+console.log(data3)
+
+let data4 = ceoList.filter((item)=>{  //조건이 필요하고 그 조건에 true 인 값만 반환
+    return item.names.startsWith('L')  //조건문 첫글자가 L로 시작하는 모든 것들 반환 조건은 항상 True/False로 떨어져야 함.
+});
+console.log(data4)
+
+
+// array 함수4. some()
+let data5 = names.some((item)=>{
+    return item.names.startsWith('L') // 조건에 대해 맞으면 true/false '뭐가 있는지 없는지 확인할떄 사용하면 유용'
+})
+console.log('some'+data5)
+
+
+// array 함수5. every()
+let data6 = names.every((item)=>{
+    return item.length>0 // 모두의 값이 0보다 크니  true/false
+})
+console.log('every'+data6)
+
+
+// array 함수6. find()
+let data7 = names.find((item)=>{
+    return item.names.startsWith('L') //이름이L이 있는 사람 찾아줘
+})
+console.log('find'+data7)
+//filter와 find의 차이는 filter는 array를 주고 find는 값을 줌
+//filter는 조건에 맞는 모든것들을 반환, find는 제일 처음에 찾은것만 반환시키고 끝
+
+
+
+// array 함수7. findIndex()
+let data8 = names.findIndex((item)=>{
+    return item=='Larry Page' // 'Larry Page' 의 index번호를 찾아줘
+})
+console.log('find'+data8)
