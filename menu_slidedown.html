@@ -68,15 +68,14 @@
         // 윈도우 스크롤시top에 붙이기
         let lnb = $('#lnb').offset().top;
         
-        $(window).scroll(funciton(){
-            let window = $(this).scrollTop();
-
-            if(lnb <= window){
-                $('#lnb').addClass('jbFixed');
+         $(window).scroll(function(e){
+            if($(this).scrollTop() > 5) {
+                $('#header_wrap').addClass('jbFixed');
             }else{
-                $('#lnb').removeClass('jbFixed');
-            }
+                $('#header_wrap').removeClass('jbFixed');
+            }   
         })
+
 
       });
 
