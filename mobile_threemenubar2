@@ -18,7 +18,9 @@
                 $('nav').removeClass('active');
                 $('div').removeClass('active'); 
             })
-
+            $('nav ul').click(function(e){
+                e.stopPropagation(); // 상속받지 않겠다!! 기존값을 막아준다. 검정 배경 클릭했을때 같이 사라지는 부분을 막기위함.
+            })
         });
     </script>
     <style>
