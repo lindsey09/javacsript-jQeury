@@ -19,7 +19,7 @@
                 $('div').removeClass('active'); 
             })
             $('nav ul').click(function(e){
-                e.stopPropagation(); // 상속받지 않겠다!! 기존값을 막아준다. 검정 배경 클릭했을때 같이 사라지는 부분을 막기위함.
+                e.stopPropagation(); // 더블링(상속)받지 않겠다!! 기존값을 막아준다. 검정 배경 클릭했을때 같이 사라지는 부분을 막기위함.
             })
         });
     </script>
@@ -60,6 +60,7 @@
             <span></span>
             <span></span>
        </div>
+       <!-- 메뉴보다 햄버거바가 더 나중에 위치해야 함. -->
 
 </body>
 </html>
