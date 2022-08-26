@@ -1,0 +1,446 @@
+SCSS
+scss를 css로 컴파일 하여 사용하여야 함
+
+재활용이 가능한 코드
+
+@mixin - 특정한 내용을 한번에 묶어서 정의하기
+@include - 정의한 내용을 사용하기
+
+
+@mixin 이름정하기size  (받아올 내용들 $w:100px , $h:100px 기본값적용) {
+ 재사용가능한 코드들 적기
+  width:$w;
+  heieght:$h;
+}
+
+.box {
+@include size (100px,100px);
+} 각각에 값을 넣어주어도 되고
+
+.box{
+@include size;
+} 해당 이름만 사용하여 기존코드값 사용할수있고
+
+@box{
+@include size($h:300px;);
+} 둘중에 하나의 값만 따로 적용하여 할 수 있음
+
+
+------------------------------------------------
+
+@mixin 믹스인이름 ($매개변수){
+}
+
+@mixin dash-line ($width, $color){
+  border:$width dashed $color;
+}
+
+.box1{@include dash-line(1px, red 인수);}
+.box2{@include dash-line(4px, blue);}
+
+
+인수의 기본값 설정
+
+@mixin 믹스인이름 ($매개변수:기본값){
+}
+@mixin dash-line ($width:1px, $color:red){
+  border:$width dashed $color;
+}
+.box2{@include dash-line(4px);}
+
+
+----------------------------------------------
+
+@content 
+
+스타일블럭을 지정한 묶음
+
+@mixin icon ($url) {
+  &::after{
+  content:$url
+  @content;
+  };
+};
+
+정의된 url이 다른데도 사용될 수 있으니 별도의 스타일을 주려고
+
+@content로 분리해서 스타일 묶음을 해줌
+
+.box1{
+  @include icon(/images/icon.png);
+}
+.box2{
+  @include icon(/images/icon.png){
+  display:block;
+  position:absolute;
+  width:100px;
+  height;100px;  해당 스타일이 @content로 들어감
+}; 
+
+}
+
+----------------------------------
+
+
+확장
+
+@extend
+
+기존에 스타일을 가지고와서 또 다른 선택자에게 같은 스타일을 적용할때
+
+.btn{
+  margin:10px;
+  padding:10px;
+  background:red;
+}
+
+.btn_danger{
+  @extend .btn;
+  background:blue;
+}
+
+확장을 추천하지 않는 이유
+
+범위 내 있는 스타일을 적용할때는 사용이 가능하나,
+범위 밖에 있는 스타일을 extend해서 사용할 경우, 원하지 않는 선택자들이 포함되어질 수 있다.
+의도한 것이라면 상관이 없겠지만 의도하지 않은 경우에는 문제가 발생할 수 있음.
+그래서 사용하지 않는것을 추천함. @mixin 기능을 사용하여 대체하여 사용가능
+
+-----------------------------------------------------------
+
+
+
+함수 function
+
+@mixin 믹스인이름($매개변수) {
+  스타일 //속성:값;
+}
+
+@function 함수이름($매개변수){
+  @retrun 값;
+}
+
+
+mixin 믹스인이름(인수);
+  함수이름(인수) 로 사용함/ 괄호를 열고 닫아주는것이 중요하다.
+function columns($number, $columns, $width){
+  @return $width * ($number / $columns1/12);
+}
+
+.container{
+  $width:1200px;
+  width:$width;
+  .item:nth-child(1){
+  width:columns(1몇번째칼럼, 12칼럼12개중, $width 칼럼너비);
+}
+
+function columns($number:1, $columns:12, $width:1200px){
+  @return $width * ($number / $columns1/12);
+}
+
+.item:nth-child(2){
+  width:columns(8, $width:$width );
+}
+
+function columns($number:1, $columns:12, $width:1200px){
+  @return $width * ($number / $columns);
+}
+
+.item:nth-child(3){
+  width: columns(3);
+}
+
+}
+
+
+----------------------------------
+
+if
+
+if(조건, 표현식1, 표현식2)
+
+  $width:555px;
+  div{
+  width:if($width>300px, $width , null);
+
+  }
+width 값이 300보다 크다면 with 출력, 그렇지 않으면 null출력
+
+
+@function limitSize($size){
+  @if ($size >= 0 and $size <= 200px){
+  @return 200px;
+}@else{
+  @return 800px;
+}
+}
+
+.div{
+  width:limitSize(100px);
+  height:limitSize(340px);
+}
+
+// width - limitSize 100px이 0보다 크고 200보다 작으니까 200ox출력
+height - limitSize 340px이 0보다 크고 200보다 크니까 800px출력
+
+
+**********mixin 인 함수를 쓰러면 include를 사용해야하지!!!*************
+
+@mixin positionCenter ($w, $h, $p:absolute){
+  width:$w;
+  height:$h;
+  position:$p;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  margin:auto; 로 하면 가운데정렬이 됨.
+}
+
+.box01 {
+  @include positionCenter(10px, 20px);
+}
+//해당 $w, $h값에 10px 20px이 적용되어 나타남.
+
+.box02{
+  @include positionCenter(50, 50, fixed);
+}
+//해당 $w, $h값에 50,50이 적용됨.
+
+ 
+
+@mixin positionCenter ($w, $h, $p:absolute){
+  //unitless - 단위가 있는지 없는지 확인해주는 사스함수 
+  // $w에 단위가 없으면 px를 붙이고 그렇지 않으면 $w노출
+  width:if(unitless($w), #{$w}px, $w ) ;
+  height:if(unitless($h), #{$h}px, $h );
+  position:$p;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  margin:auto; 로 하면 가운데정렬이 됨.
+}
+
+
+@mixin positionCenter ($w, $h, $p:absolute){
+  @if ($p == absolute or $p == fiexed or not $p == relative or not $p == static ) {
+  // relative 혹은 static 인 경우 하기 가운데 정렬 스타일이 무의미함, 그렇기 때문에 if문을 사용하여 적용되지 않도록 해줌
+  width:if(unitless($w), #{$w}px, $w ) ;
+  height:if(unitless($h), #{$h}px, $h ); // #() 넣어주면 문자보관을 해주는 것임
+  position:$p;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  margin:auto; 로 하면 가운데정렬이 됨.
+}
+}
+}
+
+
+-----------------------------------------------------------
+
+ 
+
+@each
+
+리스트데이타
+$fruits : (apple, orange, banana, mango);
+리스트 데이타는 괄호를 열고 닫아도 되고, 생략해도 무관함
+
+.fruit {
+@each $fruit in $fruits- 변수 { // 반복될때마다 fruit가 애플 오랜지 망고 바나나로 됨
+li.#{fruit} { //fruit에 문자보관을 하여 클래스가 정의됨 .apple, .orange, .banana, .mango
+background:url(/images/#{fruit}.png); //문자보관을 하여 apple.png 등 이미지를 가지고 옴
+}
+}
+}
+
+ 
+
+each list반복문 
+$fruit : apple, orange, banana, mango ;
+.fruits{
+    @each $fruit in $fruits {
+        $index:index($fruits, $fruit); //index라는 변수를 설정하여 index 내장함수를 통해서 현재 반복되는 구긴이 몇번재 반복구간인지 확인하는것
+            //fruits라는 데이타 전체에서  fruit라는 변수가 fruits라는 데이타 안에 몇번째 내자함수가 되는지 확인하는 ㅂ것
+li:nth-child(#{$index}//문자보관) {
+            left:50px * $index;
+            background:url(/images/#{$fruit}.png);
+        }
+    }
+}
+
+-------------------------------------------------------
+
+map 데이터에는 괄호가 무조건 필요함
+map 데이터는 key:vaule; 형식으로 정의되어야 함
+
+$fruits-data:(
+    apple:korea;
+    orange:china;
+    banana:japan;
+);
+
+@each $key($fruit), $vaule($contry) in $fruits-data {
+    //map데이타에는 키 값과 벨류값이 들어가야해서, 키 값 자리에 fruit 벨류 값 자리에 contry가 들어감 
+}
+
+$fruits-data:(
+  apple:korea,
+  orange:china,
+  banana:japan
+);
+
+ 
+
+@each $fruit, $country in $fruits-data {
+    .box-#{$fruit}{//fruit 문자보관해서 순서대로 클래스 정의
+    background:url("/images/#{$country}.png"); // country 문자보관으로 순서대로 클래스 정의
+    }
+//몇번째인지 인덱스함수로 확인하고 싶으나, map data는 인덱스 함수로 사용할 수 없음.
+//그렇기 때문에 맵데이타를 리스트 데이타로 변환해야함, 그때 쓰는 함수는  map-keys() , map-values()
+}
+
+@each $fruit, $country in $fruits-data {
+    //map-keys($fruits-data)
+    //map-values($fruits-data)
+   $fruits-data--key-list: map-keys($fruits-data);
+    index($fruits-data--key-list, $fruit)
+    .box-#{$fruit}{
+        background:url("/images/#{$country}.png");
+    }
+}
+
+
+-------------------------------------------------------
+
+@while 반복문
+false가 될때까지 반복하기 때문에
+잘못된 조건문은 무한루프에 빠질수있으니 사용을 권장하지 않음.
+
+
+ 
+
+ 
+기본적인 내장함수
+
+
+[] 선택가능한 인수입니다.
+
+제로베이스 넘버링 사용하지 않음, 사스에서는 0부터 시작하지 않음. 1,2,3,4,...
+
+ 
+
+mix($color1, $color2) : 두개의 색을 섞는다.
+
+invert($color) : 색상을 반전시킨다.
+
+lighten ($color, $amount) : 더 밝은색을 만든다.
+
+darken($color, $amount) : 더 어두운색을 만듭니다.
+
+saturate($color, $amount) : 색상의 채도를 올립니다.
+
+desaturate($color, $amount) : 색상의 채도를 낮춥니다.
+
+grayscale($color) : 색상을 회색으로 변환합니다.
+
+invert($color) : 색상을 반전시킵니다.
+
+rgba($color, $alpha) : 색상의 투명도를 변경합니다.
+
+opacify($color, $amount) / fade-in($color, $amount) : 색상을 더 불투명하게 만듭니다.
+
+transparentize($color, $amount) / fade-out($color, $amount) : 색상을 더 투명하게 만듭니다.
+
+--------------------------------------------------------------------------------------------------
+
+문자(String) 함수
+
+unquote($string) : 문자에서 따옴표를 제거합니다.
+
+quote($string) : 문자에 따옴표를 추가합니다.
+
+str-insert($string, $insert, $index) : 문자의 index번째에 특정 문자를 삽입합니다.
+
+str-index($string, $substring) : 문자에서 특정 문자의 첫 index를 반환합니다.
+
+str-slice($string, $start-at, [$end-at]) : 문자에서 특정 문자(몇 번째 글자부터 몇 번째 글자까지)를 추출합니다.
+
+to-upper-case($string) : 문자를 대문자를 변환합니다.
+
+to-lower-case($string) : 문자를 소문자로 변환합니다.
+
+--------------------------------------------------------------------------------------------------
+
+숫자(Number) 함수
+
+percentage($number) : 숫자(단위 무시)를 백분율로 변환합니다.
+
+round($number) : 정수로 반올림합니다.
+
+ceil($number) : 정수로 올림합니다.
+
+floor($number) : 정수로 내림(버림)합니다.
+
+abs($number) : 숫자의 절대 값을 반환합니다.
+
+min($numbers…) : 숫자 중 최소 값을 찾습니다.
+
+max($numbers…) : 숫자 중 최대 값을 찾습니다.
+
+random() : 0 부터 1 사이의 난수를 반환합니다.
+
+--------------------------------------------------------------------------------------------------
+
+List 함수
+
+모든 List 내장 함수는 기존 List 데이터를 갱신하지 않고 새 List 데이터를 반환합니다.
+모든 List 내장 함수는 Map 데이터에서도 사용할 수 있습니다.
+
+length($list) : List의 개수를 반환합니다.
+
+nth($list, $n) : List에서 n번째 값을 반환합니다.
+
+set-nth($list, $n, $value) : List에서 n번째 값을 다른 값으로 변경합니다.
+
+join($list1, $list2, [$separator]) : 두 개의 List를 하나로 결합합니다.
+
+zip($lists…) : 여러 List들을 하나의 다차원 List로 결합합니다.
+
+index($list, $value) : List에서 특정 값의 index를 반환합니다.
+
+--------------------------------------------------------------------------------------------------
+
+Map 함수
+
+모든 Map 내장 함수는 기존 Map 데이터를 갱신하지 않고 새 Map 데이터를 반환합니다.
+
+map-get($map, $key) : Map에서 특정 key의 value를 반환합니다.
+
+map-merge($map1, $map2) : 두 개의 Map을 병합하여 새로운 Map를 만듭니다.
+
+map-keys($map) : Map에서 모든 key를 List로 반환합니다.
+
+map-values($map) : Map에서 모든 value를 List로 반환합니다.
+
+--------------------------------------------------------------------------------------------------
+
+관리(Introspection) 함수
+
+variable-exists(name) : 변수가 현재 범위에 존재하는지 여부를 반환합니다.(인수는 $없이 변수의 이름만 사용합니다.)
+
+unit($number) : 숫자의 단위를 반환합니다.
+
+unitless($number) : 숫자에 단위가 있는지 여부를 반환합니다.
+
+comparable($number1, $number2) : 두 개의 숫자가 연산 가능한지 여부를 반환합니다.
+
+ 
+
+
+
+
+
