@@ -15,7 +15,9 @@
                 $('ul li').removeClass('active');
                 $(this).addClass('active');
 
-                let tab = $(this).attr('data-tab'); //해당된 것에 속성값을 가져와서 tab변수에 넣는다.
+                let tab = $(this).attr('data-tab'); //해당된 것에 속성값을 가져와서 tab변수에 넣는다. attr 속성값 받아오기 
+                //$("#testDiv").attr("class", "addClass"); 속성값을 class에서 addclass로 바꾼다.
+                //$("#testDiv").removeAttr("class"); 속성값을 제거한다.
                 $('ol li').removeClass('active'); //활성화 되었을때 모두 remove 시키고
                 $('#'+tab).addClass('active'); // 클래스를 추가한다.
 
