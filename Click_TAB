@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click TAB</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        //div를 클릭하면 배경색이 들어가도록 코드를 작성해주세요
+        $(document).ready(function(){
+
+            $('ul li').click(function(){
+
+                $('ul li').removeClass('active');
+                $(this).addClass('active');
+
+                let tab = $(this).attr('data-tab'); //해당된 것에 속성값을 가져와서 tab변수에 넣는다.
+                $('ol li').removeClass('active'); //활성화 되었을때 모두 remove 시키고
+                $('#'+tab).addClass('active'); // 클래스를 추가한다.
+
+            });
+
+
+        });
+    </script>
+    <style>
+        ul{display:flex; list-style:none; padding:0; margin-top:40px;;}
+        ul li{/*width:20%;*/ flex:1; border:1px solid #ddd; box-sizing: border-box; text-align: center; justify-content: center; padding:20px 0;}
+        ul li.active{background-color:darkgreen; color:#fff;}
+        ol{padding:0; margin:0; list-style: none;}
+        ol li{height: 300px; display:none; justify-content: center; align-items: center; border:1px solid #ddd}
+        ol li.active{display:flex;}
+    </style>
+</head>
+</head>
+<body>
+
+    <ul>
+        <li data-tab="tab01" class="active">click example</li>
+        <li data-tab="tab02">click example</li>
+        <li data-tab="tab03">click example</li>
+        <li data-tab="tab04">click example</li>
+        <li data-tab="tab05">click example</li>
+    </ul>
+
+    <ol>
+        <li id="tab01" class="active">contents1</li>
+        <li id="tab02">contents2</li>
+        <li id="tab03">contents3</li>
+        <li id="tab04">contents4</li>
+        <li id="tab05">contents5</li>
+    </ol>
+
+
+
+
+</body>
+</html>
