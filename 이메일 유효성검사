@@ -1,0 +1,29 @@
+ <script>
+       
+       let userEmail = prompt("이메일을 입력하세요");
+       let arrUrl = ['.co.kr','.net','.com','.or.kr','.go.kr','.kr'];
+
+       let check1 = false;
+       let check2 = false;
+
+       if (userEmail.indexOf('@') > 0){
+            check1 = true
+       }
+
+        // console.log(check1);
+
+       for (let i=0; i<arrUrl.length; i++){
+        if(userEmail.indexOf(arrUrl[i])>0){
+            check2 = true;
+        }
+       }
+
+        console.log(check2);
+
+       if(check1&&check2){
+        document.write(userEmail);
+       }else{
+        document.write('no');
+       }
+
+    </script>
