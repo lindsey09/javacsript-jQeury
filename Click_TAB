@@ -20,6 +20,11 @@
                 //$("#testDiv").removeAttr("class"); 속성값을 제거한다.
                 $('ol li').removeClass('active'); //활성화 되었을때 모두 remove 시키고
                 $('#'+tab).addClass('active'); // 클래스를 추가한다.
+                
+                // console.log($(this).index()) //클릭당한 애가 몇번째인지 알아야함.
+                let num = $(this).index();
+                $('ol li').removeClass('active');
+                $('ol li').eq(num).addClass('active'); //eq() nth-child와 동일한 것
 
             });
 
