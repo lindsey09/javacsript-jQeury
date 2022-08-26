@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
+<style>
+    /* reset */
+ul, li, ol{
+    padding:0;
+    margin:0;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color:#222;
+}
+
+body{
+    font-size:15px;
+    font-family: 'Poor Story', cursive;
+    background:#ccc
+}
+
+/* header */
+header{
+    width:100%;
+}
+header .header{
+    width:1200px;
+    margin:0 auto;
+    display: flex;
+    padding-bottom:20px;
+}
+header .header .header-logo{
+    margin-right:40px;
+    margin-top:20px;
+}
+header .header .header-logo img{
+    width:200px;
+    justify-content:center;
+}
+header .header .header-nav{
+    flex-grow: 1;
+    display:flex;
+}
+header .header .header-nav > li{
+    font-size:1.3em;
+    line-height: 70px;
+    width:140px;
+    text-align: center;
+    position:relative;
+}
+header .header .header-nav > li:before{
+    content:"";
+    width:0%;
+    height:3px;
+    background:#f00;
+    position:absolute;
+    top:70px;
+    left:0;
+    transition:.8s;
+}
+header .header .header-nav > li:hover > a{
+    color:#f00;
+    display: block;;
+}
+header .header .header-nav > li:hover:before{
+    width:100%;
+}
+
+header .header .header-nav > li > ul {
+    margin-top:0px;
+    background:#fff;
+    padding:10px 20px;
+    height:150px;
+    display: none;
+}
+header .header .header-nav > li > ul > li{
+    font-size:0.8em;
+    line-height: 1.8;
+    text-align: center;
+}
+header .header .header-nav > li > ul > li:hover{
+    background:cornflowerblue;
+}
+header .header .header-nav > li > ul > li:hover a{
+    color:#fff;
+}
+
+</style>
+</head>
+
+
+
+
+<body>
+    <header>
+        <div class="header">
+            <div class="header-logo">
+                <img src="../img/logo.jpg" alt="logo">
+            </div>
+            <ul class="header-nav">
+                <li><a href="#">회사소개</a>
+                    <ul>
+                        <li><a href="#">서브문구</a></li>
+                        <li><a href="#">서브문구</a></li>
+                        <li><a href="#">서브문구</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">사업소개</a>
+                    <ul>
+                        <li><a href="#">서브문구</a></li>
+                        <li><a href="#">서브문구</a></li>
+                        <li><a href="#">서브문구</a></li>
+                        <li><a href="#">서브문구</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">시공사례</a>
+                    <ul>
+                        <li><a href="#">서브문구</a></li>
+                        <li><a href="#">서브문구</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">회사비전</a>
+                    <ul>
+                        <li><a href="#">서브문구</a></li>
+                        <li><a href="#">서브문구</a></li>
+                        <li><a href="#">서브문구</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">고객지원</a>
+                    <ul>
+                        <li><a href="#">서브문구</a></li>
+                        <li><a href="#">서브문구</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </header>
+    
+
+    <script>
+    $(document).ready(function(){
+        $('.header .header-nav > li').hover(function(e){
+            $('.header .header-nav > li > ul').slideToggle(1000);
+            e.stopPropagaton();
+        })
+
+    });
+    </script>
+
+</body>
+</html>
