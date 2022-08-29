@@ -1,0 +1,48 @@
+/*
+setInterval(); 
+일정한 시간마다 주기적으로 특정 구문을 실행하는 기능
+setTimeout(); 
+일정 시간이 지난 후 특정 구문을 한번만 실행하는 기능
+cleatInterval();
+실행 중인 타이머 함수를 멈추는 기능
+*/
+$(document).ready(function(){  //문서가 준비되면 기능을 실행해줘,
+    // let count = 0;
+    // setInterval(function(){
+    //     count++;
+    //     $('.output').text(count); //값을 넣어줄때 사용하는 것 text 괄호안에 글씨 그대로 노출되고 / html h1,h2등 스타일이 적용되어 노출됨 
+    // }, 1000 );
+//실행할 기능, 반복시간, 
+
+
+    // 1. $('button').click(function(){
+    //     setTimeout(function(){
+        
+    //     },3000);
+    // });
+
+    //2. 1번과 독같은거임
+    // $('button').click(function(){
+    //     setTimeout(test, 3000);
+    // });
+
+    // function text(){
+    //     alert('3초 후 실행');
+    // }
+
+    let count = 0;
+    let timerID = setInterval(function(){
+        count++;
+        $('.output').text(count); //값을 넣어줄때 사용하는 것 text 괄호안에 글씨 그대로 노출되고 / html h1,h2등 스타일이 적용되어 노출됨 
+    }, 1000 );
+
+    $('button').click(function(){
+        clearInterval(timerID);
+    })
+
+
+
+
+});
+
+
