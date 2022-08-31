@@ -29,7 +29,7 @@
             
                 console.log(left);
                 $('.slider ul').css('left', left-400);
-                
+                //다시 처름으로 돌아가는 것 해당 위치로
                 
             });
 
