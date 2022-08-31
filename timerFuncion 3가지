@@ -37,7 +37,7 @@ $(document).ready(function(){  //문서가 준비되면 기능을 실행해줘,
     }, 1000 );
 
     $('button').click(function(){
-        clearInterval(timerID);
+        clearInterval(timerID); //실행을 멈춰버림 
     })
 
 
