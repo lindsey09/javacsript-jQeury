@@ -19,7 +19,7 @@
         $(document).ready(function(){
             $('.next').click(function(){
                
-                let left = parseInt( $('.slider ul').css('left'))
+                let left = parseInt( $('.slider ul').css('left')) //전체 ul의 너비를 왼쪽으로 움직이는 것, 그러기 위해서는 왼쪽의 현재 위치값을 알아야 함.
                 //parseInt 정수로 바꿔주는 함수, 현재값을 -400px로 문자열로 인식하기 때문에 숫자로 변경해주어야 함.
                 //console.log(left);
                 if (left==-800){
