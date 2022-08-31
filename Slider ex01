@@ -38,7 +38,7 @@
                 let right = parseInt( $('.slider ul').css('left'))
 
                 console.log(right);
-                $('.slider ul').css('left', right+400); //position으로 움직이는것은 같은 값을 가지고 움직여야 됨, 왼쪽으로 갔다가 오른쪽으로 가는것은 이해할 수 없으니까.
+                $('.slider ul').css('left', right+400); //position으로 움직이는것은 같은 값을 가지고 움직여야 됨, 왼쪽으로 갔다가 오른쪽으로 가는것은 이해할 수 없으니까 그래서 같은값인 left를 불러옴
                    
                 if (right==0){
                     $('.slider ul').css('left',-800);
