@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	
+<script>
+  AOS.init();
+</script>
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap&subset=korean" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<script src="http://code.jquery.com/jquery-latest.min.js" language="javascript"></script>
+
+</head>
+<body>
+    
+
+
+<style>
+
+	.toggle_tab{width:100%; text-align:center; margin-bottom:50px;}
+	.toggle_tab span{display:inline-block; width:15%; margin:0px 10px; border:1px solid #000; padding:10px 0; cursor:pointer;}
+	.toggle_tab span.on{border:1px solid #333; background-color:#333; color:#fff;}
+
+	.toggle_type2{display:none; width:100%;  min-width:320px; max-width:1500px; margin:0 auto; overflow: hidden;}	
+	
+	.toggle_view_1{display:block;}
+
+	@media screen and (max-width:1340px){
+		.toggle_tab{width:100%; text-align:center; margin-bottom:50px;}
+		.toggle_tab span{display:inline-block; width:25%; margin:0px 2px; border:1px solid #000; padding:10px 0; cursor:pointer;}
+		.toggle_tab span.on{border:1px solid #333; background-color:#333; color:#fff;}
+	}
+	
+	@media screen and (max-width:1200px){
+		.toggle_tab{width:100%; text-align:center; margin-bottom:50px;}
+		.toggle_tab span{display:inline-block; width:48%; margin:0px 2px; border:1px solid #000; padding:10px 0; cursor:pointer;}
+		.toggle_tab span.on{border:1px solid #333; background-color:#333; color:#fff;}
+	}
+	
+	
+
+	@media screen and (max-width: 760px) {	
+		.toggle_tab{width:100%; text-align:center; margin-bottom:50px;}
+		.toggle_tab span{display:inline-block; width:48%; margin:0px 2px; border:1px solid #000; padding:10px 0; cursor:pointer; margin-bottom:5px;}
+		.toggle_tab span.on{border:1px solid #333; background-color:#333; color:#fff;}
+		
+	
+	}
+
+
+</style>
+
+
+<section>
+
+	<div class="toggle_tab">
+		<span class="on" rel="toggle_view_1">box1</span> 
+		<span rel="toggle_view_2">box2</span>
+		
+	</div>
+	  
+	  
+	<div class="toggle_type2 toggle_view_1 toggle_type_in"> 
+		이거는용	
+	</div>
+		
+		
+	<div class="toggle_type2 toggle_view_2 toggle_type_in" > 		
+		이거는용2
+	</div>
+		
+</section>
+
+
+<script>	
+	$('.toggle_tab span').click(function(){		
+		var tid= $(this).attr("rel");	
+		$("."+tid).removeClass('toggle_type_in');
+		$(".toggle_type_in").slideUp();
+		$("."+tid).slideDown();
+		$("."+tid).addClass('toggle_type_in');
+		$(".toggle_tab span").removeClass("on");
+		$(this).toggleClass('on');
+	});
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
