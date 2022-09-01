@@ -35,6 +35,42 @@
                 
             });
 
+/*****************************************************************/
+
+             $('.next').click(function(){
+               
+                let left = parseInt( $('.slider ul').css('left')); //전체 ul의 너비를 왼쪽으로 움직이는 것, 그러기 위해서는 왼쪽의 현재 위치값을 알아야 함.
+                let width = parseInt( $('div').css('width'));
+                let number = $('ul li').length-1; //ul li가 하나씩 늘어날때를 대비하여 그 숫자를 length로 불러와 줌.
+        
+                console.log(box_width);
+                //parseInt 정수(숫자)로 바꿔주는 함수, 현재값을 -400px로 문자열로 인식하기 때문에 숫자로 변경해주어야 함.
+                //console.log(left); 
+                // ture에 !표 붙으면 반대연산자 false가 됨. !는 반대연산자가 됨.
+                
+                if (left == -width*number ) {
+                   // $('.slider ul').css('left', 0);
+                   return; //retufn을 만나면 여기서 종료
+                }  //원동을 멈춘다.
+            
+                 console.log(left);
+                $('.slider ul').css('left', left - width);
+                //다시 처름으로 돌아가는 것 해당 위치로
+                
+            });
+            
+            li의 값이 바뀌면 ul width값만 변경해서 처리할 수 있도록 하는 슬라이드 
+
+
+/*****************************************************************/
+
+
+
+
+
+
+
+
 
             $('.prev').click(function(){
                 let right = parseInt( $('.slider ul').css('left'))
