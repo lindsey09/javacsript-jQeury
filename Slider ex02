@@ -44,9 +44,5 @@
             <li></li>
         </ul>
     </div>
-    <button class="prev">PREV</button>
-    <button class="next">NEXT</button>
-
-
 </body>
 </html>
