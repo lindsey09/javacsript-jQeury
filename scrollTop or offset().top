@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scroll example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    
+    <script>
+        //풀페이지에는 마우스 휠 이벤트로 적용됨 
+        $(document).ready(function(){
+            $(window).scroll(function(){
+                // console.log(1);
+                //console.log($(window).scrollTop()); //스크롤 위치 확인 위에서부터 
+                // console.log(
+                //     $('section').offset().top // top부터 section 시작까지의 위치 
+                // );
+                let box = $(window).scrollTop();
+                let offset = $('section').offset().top - 300; // 위에서부터 섹션의 시작위치까지의 높이 설정값 / 그리고 -300 값을 해주는 이유는 페이지가 너무 많이 내려간 상태에서 동작이 구현되기 때문에 
+                //그 값을 마이너스로 줄여주는 것
+                console.log('box'+box);
+                console.log('offset'+offset);
+
+
+                if (box > offset){ //스크롤탑이 오프셋보다 커지면 실행
+                    $('section h3').addClass('active');
+                }else{
+                    $('section h3').removeClass('active');
+                }
+
+
+            })
+        });
+
+    </script>
+    <style>
+       body{margin:0}
+       header, section, footer{ height:100vh;  text-align: center; font-size:70px; padding:calc((100vh - 109px) / 2) 0; box-sizing: border-box; } 
+       h3{margin: 0;}
+       h3 span{ transition: 1s; transform: translateX(-400px); display: block; opacity: 0;}
+       h3.active span{transform: translateX(0); display:block; opacity: 1;} 
+       header{ background:lightcoral;}
+       section{ background:lightgreen; }
+       footer{ background:lightseagreen;}
+    </style>
+</head>
+<body>
+
+    
+    <header>
+        <h3>HEADER</h3>
+    </header>
+    <section>
+        <h3><span>SECTION</span></h3>
+    </section>
+    <footer>
+        <h3>FOOTER</h3>
+    </footer>
+
+    
+</body>
+</html>
