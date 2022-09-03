@@ -42,7 +42,8 @@
     </script>
     <style>
        body{margin:0}
-       header, section, footer{ height:100vh;  text-align: center; font-size:70px; padding:calc((100vh - 109px) / 2) 0; box-sizing: border-box; } 
+       header, section, footer{ height:100vh;  text-align: center; font-size:70px; padding:calc((100vh - 109px) / 2) 0; box-sizing: border-box; }
+       /*clac 단위상관없이 사칙연산이 가능함, 100vh전체 화면 너비에서 글자 높이만큼 빼고 반으로 나눈값을 위아래 패딩으로 줌*/
        h3{margin: 0;}
        h3 span{ transition: 1s; transform: translateX(-400px); display: block; opacity: 0;}
        h3.active span{transform: translateX(0); display:block; opacity: 1;} 
