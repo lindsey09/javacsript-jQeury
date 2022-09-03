@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jQuery  -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <style>
+    html,body{margin:0; padding:0; }
+    body{width:100%;}
+
+    header, section, footer{width: 100%; height: 100vh; padding:calc((100vh - 106px) / 2) 0; text-align: center; box-sizing: border-box;}
+    .hi{font-size:80px; font-weight: bold;}
+    header{background:#dfc}
+    section{background:#fcc}
+    footer{background:#dcc}
+    section .hi{transition:1s; transform: translateX(-400%); display:block; opacity: 0;}
+    section .hi.active{transform: translateX(0); opacity: 1;}
+
+    .scroll-progess{width: 0; height:7px; background:#f1c40f; position:fixed; top:0; left:0;}
+    
+
+    </style>
+</head>
+<body>
+
+
+    <div class="scroll-progess" id="scroll-progess">
+        <span></span>
+    </div>
+  
+
+    <header><span class="hi">hello</span></header>
+    <section>
+      <span class="hi">hello</span>
+    </section>
+    <footer><span class="hi">hello</span></footer>
+
+
+
+
+<script>
+
+    $(document).ready(function(){
+       
+      const scrollProgessElement = document.querySelector('#scroll-progess');
+
+      function scrollProgess(){
+        const totalheightOfWebPage = document.body.scrollHeight;
+        const currentDistanceFromTop = document.documentElement.scrollTop;
+        const windowHeight = document.documentElement.clientHeight;
+
+        const scrolledPercentage = (currentDistanceFromTop / (totalheightOfWebPage - windowHeight)) *100;
+        console.log(scrolledPercentage);
+
+        scrollProgessElement.style.width = Math.round(scrolledPercentage) + '%';
+
+        // console.log(totalheightOfWebPage);
+        // console.log(currentDistanceFromTop);
+        // console.log(windowHeight);
+
+      }
+
+      document.addEventListener('scroll', scrollProgess);
+
+
+    });
+
+</script>
+
+</body>
+</html>
