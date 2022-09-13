@@ -1,156 +1,159 @@
 자바스크립트에서 제일 많이 사용하는 배열함수 7가지 정리!!
 
+ 
     <script>
 
-    let names = [ 'Steven Paul Jobs',
-    'Bill Gates',
-    'Mark Elliot Zuckerberg',
-    'Elon Musk',
-    'Jeff Bezos',
-    'Warren Edward Buffett',
-    'Larry Page',
-    'Larry ellison',
-    'Tim Cook',
-    'Lloyd Blankfein'
-    ] //array
-
-    // for (let i=0; i<names.length; i++){
-    //     console.log(names[]);
-    // }
-
-    // 배열함수 1. forEach() 
-//**************************************************************//
-    //함수를 만든다.
-    // function printName(item){
-    //     console.log(item); //여기에 item을 어디서 받아오지??? forEach는 자기가 알아서 가져다 줌.
-    // }
-    // //forEach()가 괄호안에 매개변수를 함수로 받는다. 그래서 함수를 따로 만들어서 넣어준다.
-    // names.forEach(printName)
-//**************************************************************//
-
-    // names.forEach(function (item){
-    //     console.log(item);
-    // });
-
-    //함수만든것을 함수명을 부여하지 않고 그대로 forEach문 매개변수 자리에 넣어준다. 그래도 동일한 값 출력 
-    //이것도 옛날문법,
-
-//**************************************************************//    
-    //하기 내용이 ES6문법
-
-    names.forEach((item)=>{ console.log(item) });
-    // 한줄로 출력이 됨.
-    names.forEach((item)=>{ 
-        console.log(item);
-    })
-
-    //매개변수 자리에 item 외에 index도 추가하여 사용할 수 있다.
-    names.forEach( (item, index)=>{ console.log(item,index) } );
-    //위아래 같은것, 줄바꿈의 차이
-    names.forEach( (item, index)=>{ 
-        console.log(item,index) 
-    });
-
-
-//**************************************************************//    
+        let names = [ 'Steven Paul Jobs',
+        'Bill Gates',
+        'Mark Elliot Zuckerberg',
+        'Elon Musk',
+        'Jeff Bezos',
+        'Warren Edward Buffett',
+        'Larry Page',
+        'Larry ellison',
+        'Tim Cook',
+        'Lloyd Blankfein'
+        ] //array
     
+        // for (let i=0; i<names.length; i++){
+        //     console.log(names[]);
+        // }
+    
+        // 배열함수 1. forEach() 
+    //**************************************************************//
+        //함수를 만든다.
+        // function printName(item){
+        //     console.log(item); //여기에 item을 어디서 받아오지??? forEach는 자기가 알아서 가져다 줌.
+        // }
+        // //forEach()가 괄호안에 매개변수를 함수로 받는다. 그래서 함수를 따로 만들어서 넣어준다.
+        // names.forEach(printName)
+    //**************************************************************//
+    
+        // names.forEach(function (item){
+        //     console.log(item);
+        // });
+    
+        //함수만든것을 함수명을 부여하지 않고 그대로 forEach문 매개변수 자리에 넣어준다. 그래도 동일한 값 출력 
+        //이것도 옛날문법,
+    
+    //**************************************************************//    
+        //하기 내용이 ES6문법
+    
+        names.forEach((item)=>{ console.log(item) });
+        // 한줄로 출력이 됨.
+        names.forEach((item)=>{ 
+            console.log(item);
+        })
+    
+        //매개변수 자리에 item 외에 index도 추가하여 사용할 수 있다.
+        names.forEach( (item, index)=>{ console.log(item,index) } );
+        //위아래 같은것, 줄바꿈의 차이
+        names.forEach( (item, index)=>{ 
+            console.log(item,index) 
+        });
+
+    
+    //**************************************************************//    
+        
     // 배열함수 2. map()
-//************************* ************************************//
-//map은 return 값이 있다. forEach에는 반환값이 없다. map에는 반환값이 있으며 반드시 array(배열)를 return한다.
+    //************************* ************************************//
+    //map은 return 값이 있다. forEach에는 반환값이 없다. map에는 반환값이 있으며 반드시 array(배열)를 return한다.
+    
+         let data = names.map( (item)=>{ return item } ) //return 뒤에 오는 값에 무엇이든 다 들어간다. 
+         console.log('map ' + data);
+    //출력값에 배열이 있다.
 
-     let data = names.map( (item)=>{ return item } ) //return 뒤에 오는 값에 무엇이든 다 들어간다. 
-     console.log(data);
-//출력값에 배열이 있다.
-
-
-//**************************************************************//    
-//map을 언제 많이 쓸까
-
-let ceoList = [
-    {name:"Larry Page",age:"23",ceo:"true"},
-    {name:"Tim Cook",age:"40",ceo:"true"},
-    {name:"Elon Musk",age:"55",ceo:"false"}
-]
-
-//ceoList중 name값만 모아서 출력해줘 
-    let data2 = ceoList.map( (item)=>{ return item.name } ) 
-    console.log(data2);
-//ceoList중 age값만 모아서 출력해줘 
-    let data3 = ceoList.map( (item)=>{ return item.age } ) 
-    console.log(data3);
-
-
-
-
-    // 배열함수 3. filter()
-//*************************************************************//
-//조건을 넣고 ture false 인 조건에 맞게 출력한다.
-// 추후 api등 방대한 자료를 가지고 불러왔을 때 사용할 수 있음.
-//ceoList중 age가 23인것을 불러와라. 
-    let data4 = ceoList.filter( (item)=>{ return item.age==23} )
-    console.log(data4);
-
-//names중 첫글자가 L로 시작하는 것을 불러와라 조건에 대해 ture인 것이 있으면 그것을 모두 다 불러온다.
-    let data5 = names.filter( (item)=>{ return item.startsWith('L') } )
-    console.log(data5);
-//데이터 필터링 할때 사용 ceoList에서는 적용이 안되던데????
-
-
-
-    // 배열함수 4. some()
-//*************************************************************//
-//names중에 글자가 L로 시작하는 아이템이 있니?  대답은 ture,false로 출력됨 
-// 조건에 대해서 ture인지 false인지 구분해 줌. 조건에 해당하는것이 있는지 없는지 확인할 때 유용하게 쓰임.
-
-    let data6 = names.some( (item)=>{ return item.startsWith('L')} )
-    console.log(data6); //ture
 
     
-    let data7 = names.some( (item)=>{ return item.startsWith('A')} )
-    console.log(data7); //false
-
-
-
-
-    // 배열함수 5. every()
-//*************************************************************//
-//모두의 조건이 맞을 때
-//모두의 이름이 L로 시작하니? falsec
-    let data8 = names.every( (item)=>{ return item.startsWith('L') } )
-    console.log(data8);
-//모두의 이름이 0보다 크니? ture    
-    let data9 = names.every( (item)=>{ return item.length>0 } )
-    console.log(data9);
-
-
-
-   
-
-    // 배열함수 6. find()
-//*************************************************************// 
-//내가 원하는 조건값을 찾아주는 함수
-
-    let data10 = names.find((item)=>{return item.startsWith('L')})
-    console.log(data10);
-//filter와 find의 차이점은 filter는 결과값을 배열로 출력, 모든 ture에 해당되는 값을 다 출력한다. 
-//find는 결과값 하나만 출력, 제일 처음에 ture되는 값만 출력한다.
-//find는 정확한 값 딱 하나만 찾기에 좋음
-
-    let data11 = names.find((item)=>{return item=="Larry Page"})
-    console.log(data11);
-
-
-
-
-    // 배열함수 7. findIndex()
-//*************************************************************// 
-//find에 index 번호를 찾아줘
-//Larry Page의 index번호를 찾아줘
-    let data12 = names.findIndex((item)=>{return item=="Larry Page"})
-    console.log(data12);
-
-
-
-
-
-    </script>
+    //**************************************************************//    
+    //map을 언제 많이 쓸까 필요한 값만 뽑아서 사용할 때
+    
+    let ceoList = [
+        {name:"Larry Page",age:"23",ceo:"true"},
+        {name:"Tim Cook",age:"40",ceo:"true"},
+        {name:"Elon Musk",age:"55",ceo:"false"}
+    ]
+    
+    //ceoList중 name값만 모아서 출력해줘 
+        let data2 = ceoList.map( (item)=>{ return item.name } ) 
+        console.log('map '+data2);
+    //ceoList중 age값만 모아서 출력해줘 
+        let data3 = ceoList.map( (item)=>{ return item.age } ) 
+        console.log('map '+data3);
+    
+    
+    
+    
+    // 배열함수 3. filter()
+    //*************************************************************//
+    //조건을 넣고 ture false 인 조건에 맞게 출력한다.
+    // 추후 api등 방대한 자료를 가지고 불러왔을 때 사용할 수 있음.
+    //ceoList중 age가 23인것을 불러와라. 
+        let data4 = ceoList.filter( (item)=>{ return item.age==23} )
+        console.log(data4);
+        //array로 가지고 옴 name:"Larry Page",age:"23",ceo:"true",
+    
+    //names중 첫글자가 L로 시작하는 것을 불러와라 조건에 대해 true인 것이 있으면 그것을 모두 다 불러온다.
+        let data5 = names.filter( (item)=>{ return item.startsWith('L') } )
+        console.log('filter  '+data5);
+    
+    
+    
+        // 배열함수 4. some()
+    //*************************************************************//
+    //names중에 글자가 L로 시작하는 아이템이 있니?  대답은 ture,false로 출력됨 
+    // 조건에 대해서 ture인지 false인지 구분해 줌. 조건에 해당하는것이 있는지 없는지 확인할 때 유용하게 쓰임.
+    
+        let data6 = names.some( (item)=>{ return item.startsWith('L')} )
+        console.log(data6); //ture
+    
+        
+        let data7 = names.some( (item)=>{ return item.startsWith('A')} )
+        console.log(data7); //false
+    
+    
+    
+    
+        // 배열함수 5. every()
+    //*************************************************************//
+    //모두의 조건이 맞을 때
+    //모두의 이름이 L로 시작하니? false
+        let data8 = names.every( (item)=>{ return item.startsWith('L') } )
+        console.log(data8);
+    //모두의 이름이 0보다 크니? ture    
+        let data9 = names.every( (item)=>{ return item.length>0 } )
+        console.log(data9);
+    
+    
+    
+       
+    
+        // 배열함수 6. find()
+    //*************************************************************// 
+    //내가 원하는 조건값을 찾아주는 함수
+    
+        let data10 = names.find((item)=>{return item.startsWith('L')})
+        console.log(data10);
+    //filter와 find의 차이점은 filter는 결과값을 배열로 출력, 모든 ture에 해당되는 값을 다 출력한다. 
+    //find는 결과값 하나만 출력, 제일 처음에 ture되는 값만 출력한다. 첫번째 L 시작인 Larry Page 출력 
+    //find는 정확한 값 딱 하나만 찾기에 좋음
+    
+        let data11 = names.find((item)=>{return item=="Tim Cook"})
+        console.log(data11);
+    
+    
+    
+    
+        // 배열함수 7. findIndex()
+    //*************************************************************// 
+    //find에 index 번호를 찾아줘
+    //Larry Page의 index번호를 찾아줘
+        let data12 = names.findIndex((item)=>{return item=="Tim Cook"})
+        console.log(data12); 
+        // 8출력
+    
+    
+    
+    
+    
+        </script>
