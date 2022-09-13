@@ -67,6 +67,39 @@
 
 
     });
+    
+/************************************************************************************************/
+
+    $(document).ready(function(){
+       
+      const scrollBar = document.querySelector('#scroll-progess');
+
+      function scrollProgess(){
+        const totalHeight = document.body.scrollHeight;
+        const offset = document.documentElement.scrollTop;
+        const windowHeight = document.documentElement.clientHeight;
+
+        const Percentage = (offset / (totalHeight - windowHeight)) *100;
+        console.log(Percentage);
+
+        scrollBar.style.width = Math.round(Percentage) + '%';
+
+
+        console.log(totalHeight);
+        console.log(offset);
+        console.log(windowHeight);
+
+      }
+
+      document.addEventListener('scroll', scrollProgess);
+
+
+    });
+
+    // $('html,body').animate({scrollTop:$(this.hash).offset().top},5000);
+    
+/*********************************************************************************************************/    
+    
 
 </script>
 
