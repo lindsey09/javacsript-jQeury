@@ -1,0 +1,17 @@
+$(window).scroll(function(){
+   if( $(this).scrollTop() > 200){
+        $('.notepads').addClass('animate');
+        $('.st4').addClass('animate');
+   }else{
+        $('.notepads').removeClass('animate');
+        $('.st4').removeClass('animate');
+   } 
+});
+
+상기와 같이 addClass를 두줄로 넣어야 될 경우
+
+$('.notepads').addClass('animate');
+$('.st4').addClass('animate');
+
+이렇게 하지않고
+$('.notepads').add( $('.st4')).addClass('animate'); 할 수 있음.
