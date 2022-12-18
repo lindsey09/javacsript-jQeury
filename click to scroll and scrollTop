@@ -1,0 +1,20 @@
+script
+
+$('.con01_link').click(function(e){
+    e.preventDefault();
+    $('html,body').animate({scrollTop:$(this.hash).offset().top},500);
+});
+
+$('.con05_link').click(function(e){
+    e.preventDefault();
+    $('html,body').animate({scrollTop:$(this.hash).offset().top},500);
+});
+
+html
+
+<div class="con01" id="con01">
+    <h3 class="first"> <a href="#con06" class="con01_link">첫번째 박스</a></h3>
+    <p>블라블라블라</p>
+</div>
+
+id값으로 해당 부분의 a태그에 연결해준다.
