@@ -1,0 +1,30 @@
+//반복문 for
+for (let i = 0; i < 10; i++) {
+  console.log(i);
+}
+
+const names = ["멍멍", "야옹", "냥냥"];
+for (let i = 0; i < names.length; i++) {
+  console.log(names[i]);
+}
+
+
+//반복문 while
+let i = 0;
+while (i < 10) {
+  console.log(i);
+  i++;
+} //조건이 언젠가는 false가 되도록 해야함.
+//조건이 까다로운경우, 어떤값이 true가 되었을때
+
+
+let i = 0;
+let isFun = false;
+while (!isFun) {
+  console.log(i);
+  i++;
+  if (i === 30) {
+    isFun = true;
+  }
+} //숫자 비교보다는 특정 조건을 비교할 때 사용함
+
