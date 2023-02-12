@@ -37,13 +37,122 @@ dog.say(); //멍멍
 cat.say(); //야옹
 
 
-겍체 생성자를 상속받는 방법..
+겍체 생성자를 상속받는 방법.
+상속하는 이유는 아래와 같은 객체생성자를 계속 만들어주어야 하기 때문에 생성자 상속을 하여 간단하게 구현함
+EX)
+1. 
+const dog = new Dog('멍멍이','멍멍');
+const dog = new Dog('야옹이','야옹');
+라는 두개의 함수가 생성자가 있을 때,
+우리는 이렇게 만들어야 한다.
+
+function Dog(name, sound){
+  this.type='개';
+  this.name= name;
+  this.sound= sound;
+}
+function Cat(name, sound){
+  this.type='고양이';
+  this.name= name;
+  this.sound= sound;
+}
+로 만들고, 프로토타입 함수도 설정해 주어야 함.
+
+Dog.prototype.say = function(){
+  console.log(this.sound);
+}
+Cat.prototype.say = function(){
+  console.log(this.sound);
+}
+
+
+상기는 똑같은게 너무 많으니까 생성자 상속을 하여 간단하게 구현함
+
+Animal 객체생성자를 만들고
 function Animal(type, name, sound){
   this.type = type;
   this.name = name;
   this.sound = sound;
 }
+애니멀이라는 프로토타입을 만들어서 넣어줬고
 Animal.prototype.say = function(){
     console.log('this.sound')
 };
+객체생성자 dog,cat을 만들고 prototype=prototype으로 공유하도록 함.
+
+function Dog(name,sound){
+  Animal.call(this, '개', name, sound);
+}
+call을 호출할 경우, 첫번째 디스, 그 다음은 객체생성자의 파라메타임.
+function Cat(name,sound){
+  Animal.call(this, '고양이', name, sound);
+}
+상기와 같이 해주고 마지막으로해야 될 것은
+Dog.prototype = Animal.prototype;
+Cat.prototype = Animal.prototype;
+두개의 프로토타입이 같다고 설정해줌.
+
+객체생성자를 만들어 프로토타입과 연결해주고 각각의 객체생성자를 만들어 프러토타입과 공유하게 하고
+call을 불러서 처리함.
+
+프로토타입 역할은 어떠한 공유되는 값과 함수를 설정하는 것임
+객체생성자는 함수를 뉴 키워드를 사용하여 호출했을때 어떤한 새로운 객체를 만들게 되고 
+객체 내부에 어떠한 값을 넣을수도있고 프로토타입으로 함수를 설정하여 this를 이용하여 각 객체가 가지고 있는 값을 
+조회해서 기능 구현을 할 수 있게 해준다.
+
+상기내용은... 옛날방법이고,ES6 클래스 문법으로 다시 보겠다.
+
+class Animal {
+  constructor(type, name, sound){
+    this.type= type;
+    this.name= name;
+    this.sound= sound;
+  }
+  say(){
+  console.log(this.sound)
+  }
+}
+//함수를 만들면 자동으로 프로토타입으로 등록이 됨.
+console.log(Animal.prototype.say); // say라는 prototype의 함수가 설정이 됨.
+
+class Dog extends Animal{
+  constructor(nams,sound){
+     super('개',name,sound);
+  }
+}
+class Cat extends Animal{
+  constructor(nams,sound){
+     super('고양이',name,sound);
+  }
+}
+
+//extends 특정 클래스를 상속받는다...는 의미
+
+const dog = new Dog('멍멍이', '멍멍');
+const cat = new Cat('야옹이', '야옹');
+
+dog.say();
+cat.say();
+
+Class 문법은 객체생성자와 프로토타입을 쉽게 사용하기 위해 만들어진 문법
+
+
+
+
+
+
+****************************연습******************************
+class Food {
+  constructor(name) {
+    this.name = name;
+    this.brands = []; //배열
+  }
+  //함수구현 = 클래스 내부에 구현한 함수들은 매소드라고 부름./
+}
+
+
+
+
+
+
 
