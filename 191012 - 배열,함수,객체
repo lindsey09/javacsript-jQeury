@@ -63,7 +63,7 @@ for (var i=0; i<배열명.length-1; i=i+1){
 }
 
 
-
+---------------------배열 내장함수--------------------
 
 shift = 첫번째 배열을 가져오다
 const numbers = [10.20.30.40.50];
@@ -113,7 +113,50 @@ console.log(array.join(', ')); //1, 2, 3, 4, 5
 
 
 
+*****************************************************************
+const numbers = [1,2,3,4,5];
 
+let sum=0;
+numbers.forEach(n => {
+   sum += n;
+})
+console.log(sum); //15
+
+const numbers = [1,2,3,4,5];
+const sum = numbers.reduce((accumulator, current) => accumulator +current, 0);
+console.log(sum); //15
+0 = 초기accumulator값
+accumulator = 누적된 값
+current = 각 원소들 값 1,2,3,4,5
+
+위의 forEach를 한줄로 간단하게 reduce로 나타냄.배열의 총합
+
+const numbers = [1,2,3,4,5];
+const avg = numbers.reduce((accumulator, current, index, array) => {
+  if(index === array.length-1){ //index가 4라면
+      retrun (accumulator + current) / array.length;
+  }
+  retrun accumulator + current;
+}, 0);
+console.log(avg); //3
+index = 각 원소가 몇번째 아이템인지 알려줌
+array = 함수를 실행하는 자기 자신
+
+
+******************************************쓸곳이 많다 reduce함수..
+reduce함수는 숫자들 말고도 다른곳에 사용할 수 있음
+const alphabets = ['a', 'a', 'a', 'b', 'c', 'c', 'd', 'e'];
+알파벳들이 배열안에 몇개씩 들어있는지 찾아서 알려줌 = reduce 함수로
+const count = alphabets.reduce((acc, current) => {
+    if (acc[current]) { //acc안에 crrurent 값이 있는지 알려줌.
+       acc[current] +=1;  //있으면 1을 더하고
+    } else {
+       acc[current] = 1 // 없으면 1이라고 하고
+    }
+    rutrun acc;
+}, {비어있는 객체값임..});
+console.log(count); // 배열에 각각의 문자들이 몇개씩 있는지 알려줌.
+******************************************쓸곳이 많다 reduce함수..
 
 
 
