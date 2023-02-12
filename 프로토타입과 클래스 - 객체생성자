@@ -1,0 +1,49 @@
+function Animal(type, name, sound){
+  this.type = type;
+  this.name = name;
+  this.sound = sound;
+  this.say = function(){
+    console.log('this.sound')
+  }
+}
+
+const dog = new Animal('개','멍멍이','멍멍');
+const cat = new Animal('고양이','야옹이','야옹');
+
+dog.say(); //멍멍
+cat.say(); //야옹
+
+== 객체생성자 - 대문자 / new keyword 사용
+
+
+dog.say(); cat.say(); 가 실행될 때 say라는 함수는 중복 실행되고 있음.
+이를 단축시키기 위해 say라는 함수를 밖으로 빼서 실행한다.
+
+-- 프로토타입 사용
+function Animal(type, name, sound){
+  this.type = type;
+  this.name = name;
+  this.sound = sound;
+}
+
+Animal.prototype.say = function(){
+    console.log('this.sound')
+}; //모든 변수들에게 공통된 함수를 가지게 하고 싶을 때
+
+const dog = new Animal('개','멍멍이','멍멍');
+const cat = new Animal('고양이','야옹이','야옹');
+
+dog.say(); //멍멍
+cat.say(); //야옹
+
+
+겍체 생성자를 상속받는 방법..
+function Animal(type, name, sound){
+  this.type = type;
+  this.name = name;
+  this.sound = sound;
+}
+Animal.prototype.say = function(){
+    console.log('this.sound')
+};
+
