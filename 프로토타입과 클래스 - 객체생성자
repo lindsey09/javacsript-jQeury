@@ -138,21 +138,33 @@ Class 문법은 객체생성자와 프로토타입을 쉽게 사용하기 위해
 
 
 
-
-
-
-****************************연습******************************
+***************************연습******************************
 class Food {
   constructor(name) {
     this.name = name;
     this.brands = []; //배열
   }
   //함수구현 = 클래스 내부에 구현한 함수들은 매소드라고 부름./
+  addBrand(brand) {
+    this.brands.push(brand)
+  }
+  print(){
+    console.log(`${this.name}을 파는 음식점들:`)
+    console.log(this.brands.join(', '));
+  
+  }
 }
 
+const pizza = new Food('피자');
+pizza.addBrand('피자헛');
+pizza.addBrand('도미노');
+pizza.addBrand('파파존스');
 
+const chicken = new Food('치킨');
+chicken.addBrand('교촌');
+chicken.addBrand('처갓집');
+chicken.addBrand('페리카나');
 
-
-
-
+pizza.print(); // 피자를 파는 음식점들 <br> 피자헛, 도미노, 파파존스 
+chicken.print(); // 치킨을 파는 음식점들 <br> 교촌, 처갓집, 페리카나
 
