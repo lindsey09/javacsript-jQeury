@@ -164,8 +164,19 @@ const [...rest, last] = numbers; =>>> 이렇게는 사용할 수 없음, 배열�
 
 
 
-
-
+EX)test문제
+함수에 n 개의 숫자들이 파라미터로 주어졌을 때, 그 중 가장 큰 값을 알아내세요.
+function max() {
+  return 0;
+}
+const result = max(1, 2, 3, 4, 10, 5, 6, 7);
+console.log(result);
+===================================================
+function max(...rest) {
+  return rest.reduce((acc, current) => (acc < current ? current : acc),0);
+}
+const result = max(1, 2, 3, 4, 10, 5, 6, 7);
+console.log(result);
 
 
 
