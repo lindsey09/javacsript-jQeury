@@ -1,8 +1,92 @@
 -------------------비구조화 할당 (구조분해)
+* 객체 비구조화 할당
+const object = [a=1];
+
+function print({a,b}) {
+  console.log(a); //1
+  console.log(b); //undefind
+}
+or 연산자로 설정해주면 
+function print({a,b}) {
+  console.log(a); //1
+  console.log(b || 2); //2
+}
+b에 값을 넣어주면
+function print({a,b=2}) {
+  console.log(a); //1
+  console.log(b); //2
+}
+
+const {a, b=2} = object;
+라고도 할 수 있음
+
+const animal = {
+  name: '멍멍이';
+  type: '개';
+}
+const nickname = animal.name;
+console.log(nickname); //멍멍이
+라고 할 수 있음.
+
+const nickname = animal.name;
+위 한줄을 비구조화 할당으로 바꾸면
+const {name.nickname} = animal; 로 바꿀 수 있음.
+이렇게 한다고해서 기존에 있던 animal이 바뀌는것은 아님
+
+
+* 배열 비구조화 할당
+const array= [1,2];
+const [one, two] = array;
+위에 2자리에 2가 없다면 아래처럼 할 수도 있음.
+
+const array= [1];
+//const one = array[0];
+//const two = array[1];
+const [one, two = 2] = array;
+라고도 할 수 있음.
+
+console.log(one); //0
+console.log(two); //1
+
+
+객체의 깊숙한 곳에 들어있는 값을 꺼내는 방법은?
+const deepObject = {
+  state: {
+    information: {
+      name: 'haha';
+      languages: ['koran', 'English', 'chinese']
+    } 
+  },
+  value:5
+}
+name, languages, value을 밖으로 꺼내고 싶다면?
+두 가지 해결방법,
+1. 비구조화 할당 문법을 두 번 사용한다.
+const {name, languages} = deepObject.state.information;
+const {value} = deepObject;
+const extracted ={
+name,
+languages,
+value
+} // haha,  ['koran', 'English', 'chinese'] , 5 
+2. 비구조화 할당을 한번 하면서 여러값을 다 가지고 온다.
+const {
+  state: {
+    information: {
+      name, languages
+    }
+  }
+  value
+} = deepObject;
+개인적으로 2번 코드는 좀..더러움..ㅋㅋㅋㅋㅋ 1번 사용을 추천함.
 
 
 
-------------------- Spread 연산자
+
+
+
+
+------------------- Spread 연산자 - 객체, 배열에서 사용
 
 const slime = {
   name:'슬라임'
@@ -47,5 +131,49 @@ const anotherAnimals = [...Animal, '토끼']; // ['개', '고양이', '호랑이
 
 const numbers = [1,2,3,4,5]; // [1,2,3,4,5]
 const addNumbers = [...numbers, 1000, ...numbers]; [1,2,3,4,5, 1000, 1,2,3,4,5]
+
+
+
+
+
+------------------- rest 연산자 - 객체, 배열, 함수의 파라메타에서 사용 spread와 역할이 반대, spread는 다른 객체에 값을 주는 반면에 rest는 퍼져있는것을 다시 모아옴. 
+남은 값을 가지고 오게 됨
+*객체
+const purplecuteSlime = {
+  name:'슬라임',
+  attribute:'cute',
+  color:'purple'
+}
+
+const {color, ...rest} = purplecuteSlime; color 값만 빼서 가지고 오게 됨.
+여기서 rest자리에 cuteslime 이라고 해도됨. color를 제외한 값들이 들어오게 됨.
+
+const {attribute, ...slime} = cuteslime 이면, attribute 값이 빠지고 name값만 slime에 남게 됨.
+
+*배열
+const numbers = [0,1,2,3,4,5,6];
+const [one, two, ...rest] = numbers;
+console.log(one); //0
+console.log(two); //1
+console.log(rest); //2,3,4,5,6 
+
+const [...rest, last] = numbers; =>>> 이렇게는 사용할 수 없음, 배열에서 rest는 제일 마지막에 와야 함.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
