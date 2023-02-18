@@ -1,0 +1,35 @@
+global 전역에서 모두 사용 / fuction 함수내에서 사용 / block if/for/swich문 등 블럭{}안에서 사용
+
+const value = 'hello'; //global scope
+
+function myFunction(){
+  console.log('myFunction: ');
+  console.log(value)// hello
+}
+function anotherFunction(){
+  console.log('anotherFunction: ');
+  const value = 'bye'; //function scope
+  console.log(value) //bye
+}
+myFunction();
+anotherFunction();
+
+console.log('global scope' );
+console.log(value); //hello
+
+
+또 다른 방법
+const value = 'hello';
+
+function myFunction(){
+  const value = 'bye';
+  if(true){
+    const value = 'world';
+    console.log('block scope');
+    console.log(value); // world  block
+  }
+  console.log('function scope');
+  console.log(value); // bye function
+}
+  console.log('global scope');
+  console.log(value); // hello global
