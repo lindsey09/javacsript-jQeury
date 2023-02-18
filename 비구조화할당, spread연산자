@@ -1,0 +1,51 @@
+-------------------비구조화 할당 (구조분해)
+
+
+
+------------------- Spread 연산자
+
+const slime = {
+  name:'슬라임'
+};
+const cuteslime = {
+  name:'슬라임',
+  attribute:'cute'
+};
+const purplecuteslime = {
+  name:'슬라임',
+  attribute:'cute',
+  color:'purple'
+};
+
+이렇게 객체를 참고하여 새로운 객체를 만들고 싶을 때 사용함. spread
+
+const slime = {
+  name:'슬라임'
+};
+const cuteslime = {
+  ...slime,
+  attribute:'cute'
+};
+const purplecuteslime = {
+  ...cuteslime,
+  color:'purple'
+};
+
+상기와 같이 할 경우, 기존에 객체들이 가지고 있던 내용들이 다 불러와지게 됨
+기존 객체를 복사하고 거기에 추가적인 값들을 넣어줄 때 사용 = spread
+
+const greencuteslime = {
+  ...purplecuteslime,
+  color:'green'
+}
+이렇게 할 경우, 기존에 있던 purple 값을 green이 덮어버리게 됨
+
+* 배열에서도 똑같이 적용됨
+
+const Animals = ['개', '고양이', '호랑이']; // ['개', '고양이', '호랑이']
+const anotherAnimals = [...Animal, '토끼']; // ['개', '고양이', '호랑이', '토끼']
+
+const numbers = [1,2,3,4,5]; // [1,2,3,4,5]
+const addNumbers = [...numbers, 1000, ...numbers]; [1,2,3,4,5, 1000, 1,2,3,4,5]
+
+
