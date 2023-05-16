@@ -1,0 +1,103 @@
+    function getList()
+    {
+        $.ajax({
+            type: "POST",
+            url: "/_ajax.alcohol_data.php",
+            data: <?=json_encode($param)?>,
+            success: function(res_data) {
+                var json = $.parseJSON(res_data);
+                // console.log(json.data.li_cate_enname);
+
+                const liquorKind = json.data.li_cate_enname;
+                const liquorCont = document.getElementById('liquor__list')
+
+                liquorKind.forEach(function(item) {
+                    // console.log(`item : ${item}`)
+                    if(item == 'sake'){
+                        // console.log(item.length);
+                        // $('#liquor__list').append('/liquor_sake.html')
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('GET', '/liquor_sake.html', true);
+                        xhr.onreadystatechange = function() {
+                            if (xhr.readyState === 4 && xhr.status === 200) {
+                                var htmlContent = xhr.responseText;
+                                // htmlContent 변수에 할당된 HTML 파일 내용을 사용할 수 있습니다.
+                                console.log(htmlContent);
+                                $('#liquor__list').append(htmlContent);
+                            }
+                        };
+                        xhr.send();
+                    }else if(item == 'soju'){
+                        // $('#liquor__list').load('/liquor_soju.html')
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('GET', '/liquor_soju.html', true);
+                        xhr.onreadystatechange = function() {
+                            if (xhr.readyState === 4 && xhr.status === 200) {
+                                var htmlContent2 = xhr.responseText;
+                                // htmlContent 변수에 할당된 HTML 파일 내용을 사용할 수 있습니다.
+                                console.log(htmlContent2);
+                                $('#liquor__list').append(htmlContent2);
+                            }
+                        };
+                        xhr.send();
+
+                    }else if(item == 'wine'){
+                        // $('#liquor__list').load('/liquor_wine.html')
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('GET', '/liquor_soju.html', true);
+                        xhr.onreadystatechange = function() {
+                            if (xhr.readyState === 4 && xhr.status === 200) {
+                                var htmlContent3 = xhr.responseText;
+                                // htmlContent 변수에 할당된 HTML 파일 내용을 사용할 수 있습니다.
+                                console.log(htmlContent3);
+                                $('#liquor__list').append(htmlContent3);
+                            }
+                        };
+                        xhr.send();
+                    }else{
+                        $('#liquor__list').load('/liquor_etc.html')
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('GET', '/liquor_soju.html', true);
+                        xhr.onreadystatechange = function() {
+                            if (xhr.readyState === 4 && xhr.status === 200) {
+                                var htmlContent4 = xhr.responseText;
+                                // htmlContent 변수에 할당된 HTML 파일 내용을 사용할 수 있습니다.
+                                console.log(htmlContent4);
+                                $('#liquor__list').append(htmlContent4);
+                            }
+                        };
+                        xhr.send();
+                    }
+
+                }); 
+
+            }
+
+        });
+        return false;
+
+    }
+getList();
+
+이렇게 하면 json을 사용한 의미가 없다고 한다...
+
+
+    function getList()
+    {
+        $.ajax({
+            type: "POST",
+            url: "/_ajax.alcohol_data.php",
+            data: <?=json_encode($param)?>,
+            success: function(res_data) {
+                var json = $.parseJSON(res_data);
+                $(".total_prd").html(json.total);
+                $("#liquor__list").html(json.html);
+            }
+
+        });
+        return false;
+
+    }
+getList();
+
+이렇게 바꿔야된다...고하는데..... 음....... 
