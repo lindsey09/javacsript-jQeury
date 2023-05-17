@@ -1,0 +1,62 @@
+ <h2>charAt</h2>
+    <p>문자열에서 인덱스 번호에 해당하는 문자열 출력</p>
+    <script>
+        let str = 'Hello World'
+        document.write(str.charAt(4)) //o
+    </script>
+    
+    <h2>indexOf, Search</h2>
+    <p>찾고자 하는 문자열이 몇번째있나</p>
+    <script>
+        document.write(str.indexOf('World')) //6
+        document.write(str.search('World')) //6
+        document.write(str.indexOf('Worlds')) //-1  값이 없을 경우 
+        document.write(str.search('Worlds')) //-1  값이 없을 경우 
+        //사용자가 해당페이지는 보고 있나 없나 일떄 활용함. 페이지를 열자마자 url(주소표시줄)에 해당 문자가 있나 없나를 활용함 -1로 활용하면 될 것 같음 =페이지별 active 사용할 떄 필요
+    </script>
+    
+    
+    <h2>concat</h2>
+    <p>배열뿐만 아니라 문자열을 합친다.</p>
+    <script>
+        let str2 = 'welcome universe'
+        let str3 = str.concat(str2)
+        document.write(str3)
+    </script>
+
+
+    <h2>replace</h2>
+    <p>문자열에서 특정문자를 내가 원하는 문자로 교체한다.</p>
+    <script>
+        let str4 = str2.replace('welcome', 'by')
+        document.write(str4 , str2) // 원본은 바뀌지 않음
+    </script>
+
+
+    <h2>slice</h2>
+    <p>원하는 인덱스 번호의 요소를 복사해서 가지고 옴</p>
+    <script>
+        let str5 = str.slice(0,5)
+        document.write(str5,str) //원본은 바뀌지 않음
+
+    </script>
+
+
+    <h2>split</h2>
+    <p>문자열에서 특정문자를 구분자로해서 배열로 분리해줌 문자열 > 배열</p>
+    <p>join = 배열에 있는 내용을 구분자를 이용해서 하나의 문자열로 생성해줌 배열 > 문자열</p>
+    <script>
+        let org = 'html/css/javascript'
+        let new1 = org.split('/') //해당 문자열 기준으로 구분함
+        document.write(org, new1)
+        
+        console.log(typeof(org), typeof(new1)); //string , object
+    </script>
+
+
+    <h2>length</h2>
+    <p>문자열의 개수</p>
+    <script>
+        document.write(str.length)
+    </script>
+    
