@@ -75,6 +75,67 @@ for (let i = 0; i < 10; i++) {
 }
 
 
+==============================================================================
+forEach, forin, forof 반복문
+
+/* 
+            forEach 가지고있는 인덱스번호를 활용할 수 있다. 가장큰장점
+            대상-배열
+            대상.forEach(function(각원소, 원소의 인덱스, 전체원소){
+                //반복할일
+            })
+        */
+       let arr = ['a','b','c','d','e','f']
+       arr.forEach(function(item,idx,all){
+            //반복 할 일
+            document.write(item + '는 전체배열' + all + '중에' + idx + '번째 입니다 </br>');
+       })
+
+
+       /*
+        FORIN 객체의 값에서만 사용할 수 있음.
+        객체 = 변수 + 함수
+        for(프로퍼티명 in 객체명대상){
+            //반복 할 일
+        } 
+       */ 
+       let student = {
+            eng : 100,
+            kor : 90,
+            math : 80
+       }
+       console.log(student.eng); // 콘솔찍을떄는 이렇게
+       for(item in student){
+        document.write(item + ':' + student[item]) // 구문안에 넣고 출력할때는 이렇게
+       }
+
+
+       /*
+       FOROF 배열에서 사용가능 forEach와 비슷함.
+       for(각원소변수 of 배열명){
+        //반복 할 일
+       }
+       */
+
+       for(item of arr){
+        document.write(item+'</br>')
+       }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
