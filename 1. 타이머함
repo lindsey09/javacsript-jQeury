@@ -1,0 +1,45 @@
+ <h2>setTimeout</h2>
+    <p>시간을 한번만 체크한다.</p>
+    <p>지정한 시간이 소진되면(tiemout) 구문을 실행한다.</p>
+    <pre>
+        setTimeout( 할일, 시간)
+        할일 = function(){실제할일}
+        시간 milisecond, 1000 = 1s
+
+        //멈추는 방법
+        clearTimeout(멈추려고하는 대상의 이름)
+    </pre>
+    <script>
+        // let timer = setTimeout( function(){
+        //     alert("setTimeout");
+        // }, 4000)
+        // clearTimeout(timer) //타이머 멈춤 
+    </script>
+
+
+    <h2>setInterval</h2>
+    <p>일정시간마다 지정한 구문을 실행한다.</p>
+    <pre>
+        setInterval( function(){
+            //반복실행문
+        })
+        clearTimeout(멈추려고하는 대상의 이름)
+    </pre>
+    <script>
+        // let timer2 = setInterval(function(){
+        //     alert('setInterval')
+        // }, 4000) //슬라이드 할 때 사용함
+        // clearInterval(timer2)
+
+        //다섯번만 할 수 있게
+        let count = 0;
+        let timer3 = setInterval(function(){
+            alert('setInterval')
+            count++
+            console.log(count)
+            if(count == 5){
+                clearInterval(timer3)
+            }
+        }, 4000) //슬라이드 할 때 사용함
+        
+    </script>
