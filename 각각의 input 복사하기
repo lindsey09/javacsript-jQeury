@@ -1,0 +1,241 @@
+<html>
+
+<section class="faq_list">
+
+
+    <h4 class="pop_title">FAQ 수정</h4>
+
+    <table class="col_tb" style="border-top:1px solid #ddd;">
+        <colgroup>
+            <col style="width:100px">
+            <col style="">
+        </colgroup>
+        <tbody>
+            <tr>
+                <th>구분</th>
+                <td>
+                    <select name="" id="" class="tab12_select">
+                        <option value="">숙박</option>
+                        <option value="">온천</option>
+                        <option value="">골프</option>
+                        <option value="">상품</option>
+                        <option value="">주변관광</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>질문</th>
+                <td>
+                    <table class="col_tb" style="border-top:0">
+                        <colgroup>
+                            <col style="width:90px">
+                            <col style="">
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th>한국어</th>
+                                <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <th>영어</th>
+                                <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <th>일본어</th>
+                                <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <th>중국간체</th>
+                                <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <th>중국번체</th>
+                                <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <th style="border-bottom:0">태국어</th>
+                                <td style="border-bottom:0"><input type="text"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <th>답변</th>
+                <td>
+                    <table class="col_tb" style="border-top:0">
+                        <colgroup>
+                            <col style="width:90px">
+                            <col style="">
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th>한국어</th>
+                                <td>
+                                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                                    <div class="page_site_wrap">
+                                        <div>
+                                            <!-- <p>참고사이트명</p> -->
+                                            <input type="text" class="borderd" placeholder="참고사이트명">
+                                        </div>
+                                        <div>
+                                            <p>URL</p>
+                                            <input type="text" class="urlInput borderd" value="www.naver.com"
+                                                placeholder="https://www.naver.com">
+                                        </div>
+                                        <div class="button_box">
+                                            <button type="button" class="copy_btn" onclick="copyURL()">복사</button>
+                                            <button type="button" class="add_btn">추가</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>영어</th>
+                                <td>
+                                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                                    <div class="page_site_wrap">
+                                        <div>
+                                            <input type="text" class="borderd" placeholder="참고사이트명">
+                                        </div>
+                                        <div>
+                                            <p>URL</p>
+                                            <input type="text" class="urlInput borderd" value="www.daum.net"
+                                                placeholder="https://www.daum.net">
+                                        </div>
+                                        <div class="button_box">
+                                            <button type="button" class="copy_btn" onclick="copyURL()">복사</button>
+                                            <button type="button" class="add_btn">추가</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>일본어</th>
+                                <td>
+                                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                                    <div class="page_site_wrap">
+                                        <div>
+                                            <input type="text" class="borderd" placeholder="참고사이트명">
+                                        </div>
+                                        <div>
+                                            <p>URL</p>
+                                            <input type="text" class="urlInput borderd" value="www.naver.com"
+                                                placeholder="https://www.naver.com">
+                                        </div>
+                                        <div class="button_box">
+                                            <button type="button" class="copy_btn" onclick="copyURL()">복사</button>
+                                            <button type="button" class="add_btn">추가</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>중국간체</th>
+                                <td>
+                                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                                    <div class="page_site_wrap">
+                                        <div>
+                                            <input type="text" class="borderd" placeholder="참고사이트명">
+                                        </div>
+                                        <div>
+                                            <p>URL</p>
+                                            <input type="text" class="urlInput borderd" value="www.naver.com"
+                                                placeholder="https://www.naver.com">
+                                        </div>
+                                        <div class="button_box">
+                                            <button type="button" class="copy_btn" onclick="copyURL()">복사</button>
+                                            <button type="button" class="add_btn">추가</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>중국번체</th>
+                                <td>
+                                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                                    <div class="page_site_wrap">
+                                        <div>
+                                            <input type="text" class="borderd" placeholder="참고사이트명">
+                                        </div>
+                                        <div>
+                                            <p>URL</p>
+                                            <input type="text" class="urlInput borderd" value="www.naver.com"
+                                                placeholder="https://www.naver.com">
+                                        </div>
+                                        <div class="button_box">
+                                            <button type="button" class="copy_btn" onclick="copyURL()">복사</button>
+                                            <button type="button" class="add_btn">추가</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th style="border-bottom:0">태국어</th>
+                                <td style="border-bottom:0">
+                                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                                    <div class="page_site_wrap">
+                                        <div>
+                                            <input type="text" class="borderd" placeholder="참고사이트명">
+                                        </div>
+                                        <div>
+                                            <p>URL</p>
+                                            <input type="text" class="urlInput borderd" value="www.naver.com"
+                                                placeholder="https://www.naver.com">
+                                        </div>
+                                        <div class="button_box">
+                                            <button type="button" class="copy_btn" onclick="copyURL()">복사</button>
+                                            <button type="button" class="add_btn">추가</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+
+
+        </tbody>
+
+    </table>
+
+    <div class="bottom_btn">
+        <button type="button">저장</button>
+    </div>
+
+
+
+
+
+</section>
+
+</html>
+<script>
+// "복사" 버튼 클릭 시 해당 URL 값을 복사하는 함수
+function copyURL() {
+    // 버튼을 클릭한 요소를 찾습니다.
+    var button = event.target;
+    // console.log(button.parentNode.previousSibling)
+    // console.log(button.parentNode.previousElementSibling)
+    // 버튼과 동일한 레벨에 있는 참조된 URL 입력 요소를 찾습니다.
+    var urlInputElement = button.parentNode.previousElementSibling.querySelector(".urlInput");
+    // console.log(urlInputElement)
+
+    // 찾은 요소의 값을 복사합니다.
+    urlInputElement.select();
+    document.execCommand("copy");
+}
+
+// 모든 "복사" 버튼 요소를 선택합니다.
+var copyButtons = document.querySelectorAll(".copy_btn");
+
+// 각각의 "복사" 버튼에 이벤트 리스너를 추가합니다.
+for (var i = 0; i < copyButtons.length; i++) {
+    copyButtons[i].addEventListener("click", copyURL);
+}
+
+
+
+
+</script>
